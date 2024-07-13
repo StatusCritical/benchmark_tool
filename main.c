@@ -57,19 +57,11 @@ void mult_mat(int not){
         timetime += time_taken;
     }
     printf("%f\n", timetime / 10);
-    //printf("%f", time_taken);
 }
 
 int main(void) {
     while (1) {
-//        int o;
-//        float timetime;
-//        for (o = 0; o < 10; o++) {
-//            printf("Pass %d\n", o + 1);
-            mult_mat(10000);
-//            timetime += time_taken;
-//        }
-//        printf("%f\n", timetime / 10);
+        mult_mat(10000);
         system("pause");
         timetime = 0;
     }
