@@ -33,8 +33,6 @@ int main(void) {
         for (x = 0; x < i; x++) {
             for (y = 0; y < j; y++) {
                 c[x][y] = 0;
-                //printf("%f", c[x][y]);
-                //printf(".");
             }
         }
     }
