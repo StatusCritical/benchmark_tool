@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 
 
 clock_t t;
@@ -21,6 +22,23 @@ void gen_mat(int not){
     float a[i][j];
     float b[i][j];
     float c[i][j];
+
+    startc();
+    int z;
+    for (z=0;z<not;z++) {
+        for (x=0;x<i;x++){
+            for (y=0;y<j;y++){
+                a[x][y] = 2;
+            }
+        }
+        for (x=0;x<i;x++){
+            for (y=0;y<j;y++){
+                a[x][y] = 0;
+            }
+        }
+    }
+    endc();
+    printf("%f", time_taken);
 }
 
 void mult_mat(int not){
@@ -58,6 +76,11 @@ void mult_mat(int not){
     printf("%f", time_taken);
 }
 int main(void) {
-    mult_mat(100000);
-
+    int o;
+    for (o=0;o<10;o++) {
+        printf("Running, please wait\n");
+        mult_mat(10000);
+        printf(" (time taken)\n");
+    }
+    system("pause");
 }

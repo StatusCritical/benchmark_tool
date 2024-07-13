@@ -73,39 +73,6 @@ build untitled.exe: C_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/
   TARGET_IMPLIB = libuntitled.dll.a
   TARGET_PDB = untitled.exe.dbg
 
-# =============================================================================
-# Object build statements for EXECUTABLE target bench
-
-
-#############################################
-# Order-only phony target for bench
-
-build cmake_object_order_depends_target_bench: phony || CMakeFiles/bench.dir
-
-build CMakeFiles/bench.dir/main.c.obj: C_COMPILER__bench_unscanned_Debug C$:/Users/pengu/CLionProjects/untitled/main.c || cmake_object_order_depends_target_bench
-  DEP_FILE = CMakeFiles\bench.dir\main.c.obj.d
-  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\bench.dir
-  OBJECT_FILE_DIR = CMakeFiles\bench.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target bench
-
-
-#############################################
-# Link the executable bench.exe
-
-build bench.exe: C_EXECUTABLE_LINKER__bench_Debug CMakeFiles/bench.dir/main.c.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\bench.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = bench.exe
-  TARGET_IMPLIB = libbench.dll.a
-  TARGET_PDB = bench.exe.dbg
-
 
 #############################################
 # Utility command for edit_cache
@@ -132,8 +99,6 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build bench: phony bench.exe
-
 build untitled: phony untitled.exe
 
 # =============================================================================
@@ -144,7 +109,7 @@ build untitled: phony untitled.exe
 #############################################
 # Folder: C:/Users/pengu/CLionProjects/untitled/cmake-build-debug
 
-build all: phony untitled.exe bench.exe
+build all: phony untitled.exe
 
 # =============================================================================
 # Built-in targets
