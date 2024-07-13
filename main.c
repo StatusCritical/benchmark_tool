@@ -64,5 +64,6 @@ int main(void) {
         }
         printf("%f\n", timetime / 10);
         system("pause");
+        timetime = 0;
     }
 }
