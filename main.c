@@ -1,7 +1,29 @@
 #include <stdio.h>
 #include <time.h>
 
-int main(void) {
+
+clock_t t;
+double time_taken;
+
+void startc(){
+    t = clock();
+}
+
+double endc(){
+    t = clock() - t;
+    time_taken = ((double)t)/CLOCKS_PER_SEC;
+    return time_taken;
+}
+
+void gen_mat(int not){
+    int i = 300, j = 300;
+    int x = i, y = j;
+    float a[i][j];
+    float b[i][j];
+    float c[i][j];
+}
+
+void mult_mat(int not){
     int i = 300, j = 300;
     int x = i, y = j;
     float a[i][j];
@@ -18,16 +40,12 @@ int main(void) {
         }
     }
 
-    clock_t t;
-    t = clock();
+    startc();
     int z;
-
-    for (z=0;z<10000;z++) {
+    for (z=0;z<not;z++) {
         for (x = 0; x < i; x++) {
             for (y = 0; y < j; y++) {
                 c[x][y] = (a[x][y] * b[x][y]);
-                //printf("%f", c[x][y]);
-                //printf(".");
             }
         }
         for (x = 0; x < i; x++) {
@@ -36,8 +54,10 @@ int main(void) {
             }
         }
     }
-    t = clock() - t;
-    double time_taken = ((double)t)/CLOCKS_PER_SEC;
+    endc();
     printf("%f", time_taken);
+}
+int main(void) {
+    mult_mat(100000);
 
 }
