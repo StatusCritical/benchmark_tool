@@ -2,7 +2,7 @@
 #include <time.h>
 
 int main(void) {
-    int i = 100, j = 100;
+    int i = 300, j = 300;
     int x = i, y = j;
     float a[i][j];
     float b[i][j];
@@ -14,17 +14,32 @@ int main(void) {
     }
     for (x=0;x<i;x++){
         for (y=0;y<j;y++){
-            b[x][y] = 2;
+            b[x][y] = 3;
         }
     }
 
-    for (x=0;x<i;x++){
-        for (y=0;y<j;y++){
-            c[x][y] = a[x][y] * b[x][y];
-//            printf("%f", c[x][y]);
+    clock_t t;
+    t = clock();
+    int z;
+
+    for (z=0;z<10000;z++) {
+        for (x = 0; x < i; x++) {
+            for (y = 0; y < j; y++) {
+                c[x][y] = (a[x][y] * b[x][y]);
+                //printf("%f", c[x][y]);
+                //printf(".");
+            }
+        }
+        for (x = 0; x < i; x++) {
+            for (y = 0; y < j; y++) {
+                c[x][y] = 0;
+                //printf("%f", c[x][y]);
+                //printf(".");
+            }
         }
     }
-    float d = clock();
-    printf("%f", d);
+    t = clock() - t;
+    double time_taken = ((double)t)/CLOCKS_PER_SEC;
+    printf("%f", time_taken);
 
 }
