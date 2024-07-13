@@ -83,9 +83,9 @@ void check_mat(int not){
             for (x = 0; x < i; x++) {
                 for (y = 0; y < j; y++) {
                     if (a[x][y] == b[x][y]) {
-                        c[x][y] = 1;
+                        c[x][y] = 2;
                     } else {
-                        c[x][y] = 0;
+                        c[x][y] = 1;
                     }
                 }
             }
@@ -101,11 +101,14 @@ void check_mat(int not){
 }
 
 int main(void) {
+    int ans;
     while (1) {
-        mult_mat(100000);
-        system("pause");
-        timetime = 0;
-        check_mat(100000);
+        printf("---------------------------------------------------------------");
+        printf("                  Welcome to benchmark.");
+        printf("                  [1]- Float Matrix Multiplication");
+        printf("                  [2]- Float Matrix Verification");
+        printf("---------------------------------------------------------------");
+        printf(">>");
         system("pause");
         timetime = 0;
     }
