@@ -5,6 +5,7 @@
 
 clock_t t;
 double time_taken;
+float a = 10.0;
 
 void startc(){
     t = clock();
@@ -63,7 +64,8 @@ void mult_mat(int not){
     for (z=0;z<not;z++) {
         for (x = 0; x < i; x++) {
             for (y = 0; y < j; y++) {
-                c[x][y] = (a[x][y] * b[x][y]);
+                //c[x][y] = (a[x][y] * b[x][y]);
+                c[x][y] = ((float)rand() / RAND_MAX) * 500;
             }
         }
         for (x = 0; x < i; x++) {
