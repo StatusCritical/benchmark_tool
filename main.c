@@ -7,25 +7,21 @@ clock_t t;
 double time_taken;
 int o;
 float timetime;
-
 void startc(){
     t = clock();
 }
-
 double endc(){
     t = clock() - t;
     time_taken = ((double)t)/CLOCKS_PER_SEC;
     timetime+=(double)time_taken;
     return time_taken;
 }
-
 int run_times(){
     int a;
     printf("How many passes? (Higher is more accurate):");
     scanf("%d", &a);
     return a;
 }
-
 void mult_mat(int not){
     int i = 250, j = 250;
     int x = i, y = j;
@@ -65,7 +61,6 @@ void mult_mat(int not){
     }
     printf("%f\n", timetime / 10);
 }
-
 void check_mat(int not){
     int i = 250, j = 250;
     int x = i, y = j;
@@ -108,7 +103,6 @@ void check_mat(int not){
     }
     printf("%f\n", timetime / 10);
 }
-
 void print_speed(int not){
     int run = run_times();
     for (o = 0; o < run; o++) {
@@ -122,7 +116,6 @@ void print_speed(int not){
     }
     printf("%f\n", timetime / 10);
 }
-
 int main(void) {
     int ans;
     while (1) {
@@ -143,7 +136,7 @@ int main(void) {
             check_mat(10000);
         }
         else if (ans == 3) {
-            return 0;
+            print_speed(10000);
         }
         else if (ans == 4) {
             return 0;
