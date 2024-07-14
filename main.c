@@ -109,14 +109,30 @@ void check_mat(int not){
     printf("%f\n", timetime / 10);
 }
 
+void print_speed(int not){
+    int run = run_times();
+    for (o = 0; o < run; o++) {
+        startc();
+        int z;
+        for (z = 0; z < not; z++) {
+            printf("....................................................................................................");
+
+        }
+        endc();
+    }
+    printf("%f\n", timetime / 10);
+}
+
 int main(void) {
     int ans;
     while (1) {
+        print_speed(1);
         printf("---------------------------------------------------------------\n");
         printf("                  Welcome to benchmark.\n");
         printf("                  [1]- Float Matrix Multiplication\n");
         printf("                  [2]- Float Matrix Verification\n");
-        printf("                  [3]- Quit\n");
+        printf("                  [3]- Console Print Speed\n");
+        printf("                  [4]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
         scanf("%d", &ans);
@@ -127,6 +143,9 @@ int main(void) {
             check_mat(10000);
         }
         else if (ans == 3) {
+            return 0;
+        }
+        else if (ans == 4) {
             return 0;
         }
         else {
