@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-
-
 clock_t t;
 double time_taken;
 int o;
@@ -109,7 +107,7 @@ void print_speed(int not){
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            printf("....................................................................................................");
+            printf("qwertyuiopasdfghjklzxcvbnm1234567890!@#$%^&*()-=_+[]{};':\",./<>?");
 
         }
         endc();
@@ -119,7 +117,6 @@ void print_speed(int not){
 int main(void) {
     int ans;
     while (1) {
-        print_speed(1);
         printf("---------------------------------------------------------------\n");
         printf("                  Welcome to benchmark.\n");
         printf("                  [1]- Float Matrix Multiplication\n");
