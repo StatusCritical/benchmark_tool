@@ -19,6 +19,13 @@ double endc(){
     return time_taken;
 }
 
+int run_times(){
+    int a;
+    printf("How many passes? (Higher is more accurate):");
+    scanf("%d", &a);
+    return a;
+}
+
 void mult_mat(int not){
     int i = 250, j = 250;
     int x = i, y = j;
@@ -35,7 +42,9 @@ void mult_mat(int not){
             b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
         }
     }
-    for (o = 0; o < 10; o++) {
+
+    int run = run_times();
+    for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
 
         startc();
@@ -73,8 +82,8 @@ void check_mat(int not){
             b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
         }
     }
-
-    for (o = 0; o < 10; o++) {
+    int run = run_times();
+    for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
 
         startc();
@@ -103,12 +112,26 @@ void check_mat(int not){
 int main(void) {
     int ans;
     while (1) {
-        printf("---------------------------------------------------------------");
-        printf("                  Welcome to benchmark.");
-        printf("                  [1]- Float Matrix Multiplication");
-        printf("                  [2]- Float Matrix Verification");
-        printf("---------------------------------------------------------------");
+        printf("---------------------------------------------------------------\n");
+        printf("                  Welcome to benchmark.\n");
+        printf("                  [1]- Float Matrix Multiplication\n");
+        printf("                  [2]- Float Matrix Verification\n");
+        printf("                  [3]- Quit\n");
+        printf("---------------------------------------------------------------\n");
         printf(">>");
+        scanf("%d", &ans);
+        if (ans == 1) {
+            mult_mat(10000);
+        }
+        else if (ans == 2) {
+            check_mat(10000);
+        }
+        else if (ans == 3) {
+            return 0;
+        }
+        else {
+            break;
+        }
         system("pause");
         timetime = 0;
     }
