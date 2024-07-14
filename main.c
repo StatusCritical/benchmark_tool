@@ -4,7 +4,7 @@
 clock_t t;
 double time_taken;
 int o;
-float timetime;
+double timetime;
 void startc(){
     t = clock();
 }
@@ -107,7 +107,7 @@ void print_speed(int not){
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            printf("qwertyuiopasdfghjklzxcvbnm1234567890!@#$%^&*()-=_+[]{};':\",./<>?");
+            printf("qwertyuiopasdfghjklzxcvbnm1234567890!@#$^&*()-=_+[]{};':\",./<>?");
 
         }
         endc();
