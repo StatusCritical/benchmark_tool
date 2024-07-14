@@ -114,6 +114,9 @@ void print_speed(int not){
     }
     printf("%f\n", timetime / 10);
 }
+void string(int not){
+    char a[10], b[10];
+}
 int main(void) {
     int ans;
     while (1) {
@@ -122,7 +125,8 @@ int main(void) {
         printf("                  [1]- Float Matrix Multiplication\n");
         printf("                  [2]- Float Matrix Verification\n");
         printf("                  [3]- Console Print Speed\n");
-        printf("                  [4]- Quit\n");
+        printf("                  [4]- \n");
+        printf("                  [5]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
         scanf("%d", &ans);
@@ -136,6 +140,9 @@ int main(void) {
             print_speed(10000);
         }
         else if (ans == 4) {
+            string(10000);
+        }
+        else if (ans == 5) {
             return 0;
         }
         else {
