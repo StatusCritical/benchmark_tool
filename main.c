@@ -130,7 +130,10 @@ void string(int not){
     printf("%f\n", timetime / 10);
 }
 void pi(int not){
-    long double p;
+    long double p,c,r;
+    //pr^2=c
+    //p=c/r^2
+    p = c/(r*r);
 }
 int main(void) {
     int ans;
