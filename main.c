@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 clock_t t;
 double time_taken;
 int o;
@@ -115,7 +116,18 @@ void print_speed(int not){
     printf("%f\n", timetime / 10);
 }
 void string(int not){
-    char a[10], b[10];
+    char a[1000000] = "c", b = "c";
+    int run = run_times();
+    for (o = 0; o < run; o++) {
+        char a[1000000] = "c", b = "c";
+        startc();
+        int z;
+        for (z = 0; z < not; z++) {
+            strncat(a, &b, 1);
+        }
+        endc();
+    }
+    printf("%f\n", timetime / 10);
 }
 int main(void) {
     int ans;
@@ -125,7 +137,7 @@ int main(void) {
         printf("                  [1]- Float Matrix Multiplication\n");
         printf("                  [2]- Float Matrix Verification\n");
         printf("                  [3]- Console Print Speed\n");
-        printf("                  [4]- String Cantonation\n");
+        printf("                  [4]- String Concatenation\n");
         printf("                  [5]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
