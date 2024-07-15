@@ -129,6 +129,9 @@ void string(int not){
     }
     printf("%f\n", timetime / 10);
 }
+void pi(int not){
+    long double p;
+}
 int main(void) {
     int ans;
     while (1) {
@@ -138,7 +141,8 @@ int main(void) {
         printf("                  [2]- Float Matrix Verification\n");
         printf("                  [3]- Console Print Speed\n");
         printf("                  [4]- String Concatenation\n");
-        printf("                  [5]- Quit\n");
+        printf("                  [5]- Pi\n");
+        printf("                  [6]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
         scanf("%d", &ans);
@@ -155,6 +159,9 @@ int main(void) {
             string(10000);
         }
         else if (ans == 5) {
+            pi(10000);
+        }
+        else if (ans == 6) {
             return 0;
         }
         else {
