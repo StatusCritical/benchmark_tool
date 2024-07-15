@@ -125,7 +125,7 @@ int main(void) {
         printf("                  [1]- Float Matrix Multiplication\n");
         printf("                  [2]- Float Matrix Verification\n");
         printf("                  [3]- Console Print Speed\n");
-        printf("                  [4]- \n");
+        printf("                  [4]- String Cantonation\n");
         printf("                  [5]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
