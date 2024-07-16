@@ -116,16 +116,16 @@ void print_speed(int not){
     printf("%f\n", timetime / 10);
 }
 void string(int not){
-    char a[1000000] = "c", b = "c";
+    char a[1000000] = "c", b = 'c';
     int run = run_times();
     for (o = 0; o < run; o++) {
-        char a[1000000] = "c", b = "c";
         startc();
         int z;
         for (z = 0; z < not; z++) {
             strncat(a, &b, 1);
         }
         endc();
+        char a[1000000] = "c", b = 'c';
     }
     printf("%f\n", timetime / 10);
 }
