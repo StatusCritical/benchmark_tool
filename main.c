@@ -148,13 +148,24 @@ void pi(int not){
 
 }
 int fib(int n) {
-    startc();
     if (n <= 1) return n;
     return fib(n-1) + fib(n-2); // Exponential time complexity for large n
-    endc();
+}
+void fib1(int not){
+    int o;
+    int run = run_times();
+    for (o = 0; o < run; o++) {
+        startc();
+        int z;
+        for (z = 0; z < not; z++) {
+            fib(30);
+        }
+        endc();
+    }
+    printf("%f\n", timetime / 10);
 }
 int main(void) {
-    fib(40);
+
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
@@ -164,7 +175,8 @@ int main(void) {
         printf("                  [3]- Console Print Speed\n");
         printf("                  [4]- String Concatenation\n");
         printf("                  [5]- Pi\n");
-        printf("                  [6]- Quit\n");
+        printf("                  [6]- Fibonacci\n");
+        printf("                  [7]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
         scanf("%d", &ans);
@@ -184,6 +196,9 @@ int main(void) {
             pi(10000);
         }
         else if (ans == 6) {
+            fib1(10);
+        }
+        else if (ans == 7) {
             return 0;
         }
         else {
