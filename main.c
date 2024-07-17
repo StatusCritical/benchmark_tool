@@ -147,7 +147,14 @@ void pi(int not){
 
 
 }
+int fib(int n) {
+    startc();
+    if (n <= 1) return n;
+    return fib(n-1) + fib(n-2); // Exponential time complexity for large n
+    endc();
+}
 int main(void) {
+    fib(40);
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
