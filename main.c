@@ -21,6 +21,17 @@ int run_times(){
     scanf("%d", &a);
     return a;
 }
+void write_scores(){
+    FILE *f = fopen("scores.txt", "a");
+    if (f == NULL)
+    {
+        printf("Error opening file!\n");
+        exit(1);
+    }
+    fprintf(f, "%f\n", timetime / 10);
+    fclose(f);
+
+}
 void mult_mat(int not){
     int i = 250, j = 250;
     int x = i, y = j;
