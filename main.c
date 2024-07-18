@@ -70,6 +70,7 @@ void mult_mat(int not){
         endc();
     }
     printf("%f\n", timetime / 10);
+    write_scores();
 }
 void check_mat(int not){
     int i = 250, j = 250;
@@ -119,7 +120,7 @@ void print_speed(int not){
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            printf("qwertyuiopasdfghjklzxcvbnm1234567890!@#$^&*()-=_+[]{};':\",./<>?");
+            printf("qwertyuiopasdfghjklzxcvbnm1234567890!@#$^&*()-=_+[]{};':\",./<>?\n");
 
         }
         endc();
@@ -130,6 +131,7 @@ void string(int not){
     char a[1000000] = "c", b = 'c';
     int run = run_times();
     for (o = 0; o < run; o++) {
+        printf("Pass %d\n", o + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
@@ -146,6 +148,7 @@ void pi(int not){
     double rad = 10.9273213637231;
     int run = run_times();
     for (o = 0; o < run; o++) {
+        printf("Pass %d\n", o + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
@@ -166,6 +169,7 @@ void fib1(int not){
     int o;
     int run = run_times();
     for (o = 0; o < run; o++) {
+        printf("Pass %d\n", o + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
@@ -198,7 +202,7 @@ int main(void) {
             check_mat(10000);
         }
         else if (ans == 3) {
-            print_speed(10000);
+            print_speed(1000);
         }
         else if (ans == 4) {
             string(10000);
@@ -213,7 +217,7 @@ int main(void) {
             return 0;
         }
         else {
-            break;
+            continue;
         }
         system("pause");
         timetime = 0;
