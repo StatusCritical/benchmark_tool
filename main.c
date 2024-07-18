@@ -21,14 +21,13 @@ int run_times(){
     scanf("%d", &a);
     return a;
 }
-void write_scores(){
+void write_scores(int test){
     FILE *f = fopen("scores.txt", "a");
     if (f == NULL)
     {
-        printf("Error opening file!\n");
-        exit(1);
+        return;
     }
-    fprintf(f, "%f\n", timetime / 10);
+    fprintf(f, "%f\n", timetime / o);
     fclose(f);
 
 }
@@ -69,8 +68,8 @@ void mult_mat(int not){
         }
         endc();
     }
-    printf("%f\n", timetime / 10);
-    write_scores();
+    printf("%f\n", timetime / o);
+    write_scores(1);
 }
 void check_mat(int not){
     int i = 250, j = 250;
@@ -112,7 +111,7 @@ void check_mat(int not){
         }
         endc();
     }
-    printf("%f\n", timetime / 10);
+    printf("%f\n", timetime / o);
 }
 void print_speed(int not){
     int run = run_times();
@@ -125,7 +124,7 @@ void print_speed(int not){
         }
         endc();
     }
-    printf("%f\n", timetime / 10);
+    printf("%f\n", timetime / o);
 }
 void string(int not){
     char a[1000000] = "c", b = 'c';
@@ -140,7 +139,7 @@ void string(int not){
         endc();
         char a[1000000] = "c", b = 'c';
     }
-    printf("%f\n", timetime / 10);
+    printf("%f\n", timetime / o);
 }
 void pi(int not){
     double p;
@@ -157,7 +156,7 @@ void pi(int not){
         endc();
         p = 0;
     }
-    printf("%lf\n", timetime / 10);
+    printf("%lf\n", timetime / o);
 
 
 }
@@ -177,7 +176,7 @@ void fib1(int not){
         }
         endc();
     }
-    printf("%f\n", timetime / 10);
+    printf("%f\n", timetime / o);
 }
 int main(void) {
 
