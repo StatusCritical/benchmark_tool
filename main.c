@@ -22,13 +22,60 @@ int run_times(){
     return a;
 }
 void write_scores(int test){
-    FILE *f = fopen("scores.txt", "a");
-    if (f == NULL)
-    {
-        return;
+    if (test == 1){
+        FILE *f = fopen("scores1.txt", "a");
+        if (f == NULL)
+        {
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
     }
-    fprintf(f, "%f\n", timetime / o);
-    fclose(f);
+    else if (test == 2){
+        FILE *f = fopen("scores2.txt", "a");
+        if (f == NULL)
+        {
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
+    }
+    else if (test == 3){
+        FILE *f = fopen("scores3.txt", "a");
+        if (f == NULL)
+        {
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
+    }
+    else if (test == 4){
+        FILE *f = fopen("scores4.txt", "a");
+        if (f == NULL)
+        {
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
+    }
+    else if (test == 5){
+        FILE *f = fopen("scores5.txt", "a");
+        if (f == NULL)
+        {
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
+    }
+    else if (test == 6){
+        FILE *f = fopen("scores6.txt", "a");
+        if (f == NULL)
+        {
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
+    }
 
 }
 void mult_mat(int not){
@@ -68,7 +115,7 @@ void mult_mat(int not){
         }
         endc();
     }
-    printf("%f\n", timetime / o);
+    printf("%.10f\n", timetime / o);
     write_scores(1);
 }
 void check_mat(int not){
@@ -111,7 +158,8 @@ void check_mat(int not){
         }
         endc();
     }
-    printf("%f\n", timetime / o);
+    printf("%.10f\n", timetime / o);
+    write_scores(2);
 }
 void print_speed(int not){
     int run = run_times();
@@ -124,7 +172,8 @@ void print_speed(int not){
         }
         endc();
     }
-    printf("%f\n", timetime / o);
+    printf("%.10f\n", timetime / o);
+    write_scores(3);
 }
 void string(int not){
     char a[1000000] = "c", b = 'c';
@@ -139,7 +188,8 @@ void string(int not){
         endc();
         char a[1000000] = "c", b = 'c';
     }
-    printf("%f\n", timetime / o);
+    printf("%.10f\n", timetime / o);
+    write_scores(4);
 }
 void pi(int not){
     double p;
@@ -156,7 +206,8 @@ void pi(int not){
         endc();
         p = 0;
     }
-    printf("%lf\n", timetime / o);
+    printf("%.10f\n", timetime / o);
+    write_scores(5);
 
 
 }
@@ -176,7 +227,8 @@ void fib1(int not){
         }
         endc();
     }
-    printf("%f\n", timetime / o);
+    printf("%.10f\n", timetime / o);
+    write_scores(6);
 }
 int main(void) {
 
