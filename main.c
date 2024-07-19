@@ -213,25 +213,23 @@ void pi(int not){
 }
 int fib(int n) {
     if (n <= 1) return n;
-    return fib(n-1) + fib(n-2); // Exponential time complexity for large n
+    return fib(n-1) + fib(n-2);
 }
 void fib1(int not){
-    int o;
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            fib(30);
+            fib(35);
         }
         endc();
     }
-    printf("%.10f\n", timetime / o);
     write_scores(6);
+    printf("%.10f\n", timetime / o);
 }
 int main(void) {
-
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
