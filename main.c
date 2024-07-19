@@ -222,7 +222,7 @@ void fib1(int not){
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            fib(35);
+            fib(36);
         }
         endc();
     }
