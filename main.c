@@ -11,16 +11,15 @@ void startc(){
 }
 double endc(){
     t = clock() - t;
-    time_taken = ((double)t)/CLOCKS_PER_SEC;
+    time_taken = ((double)t)/(double)CLOCKS_PER_SEC;
     timetime+=(double)time_taken;
     return time_taken;
 }
 int run_times(){
-//    int a;
-//    printf("How many passes? (Higher is more accurate):");
-//    scanf("%d", &a);
-//    return a;
-    return 10;
+    int a;
+    printf("How many passes? (Higher is more accurate):");
+    scanf("%d", &a);
+    return a;
 }
 void write_scores(int test){
     if (test == 1){
@@ -279,11 +278,22 @@ void division(int not){
     printf("%.10f\n", timetime / o);
     write_scores(7);
 }
-int main(void) {
-    while (1){
-        division(10000);
-        timetime = 0;
+void doubles(int not){
+    long int a = 1.0;
+    int run = run_times();
+    for (o = 0; o < run; o++) {
+        printf("Pass %d\n", o + 1);
+        startc();
+        int z;
+        for (z = 0; z < not; z++) {
+            a = a * 2;
+        }
+        endc();
     }
+    printf("%.10f\n", timetime / o);
+    write_scores(8);
+}
+int main(void) {
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
