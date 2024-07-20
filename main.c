@@ -239,13 +239,16 @@ void fib1(int not){
     printf("%.10f\n", timetime / o);
 }
 void division(int not){
+    double p;
+    double c = 68.65838503937458;
+    double d = 10.9273213637231;
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
-
+            p = c/d;
         }
         endc();
     }
@@ -263,7 +266,8 @@ int main(void) {
         printf("                  [4]- String Concatenation\n");
         printf("                  [5]- Pi\n");
         printf("                  [6]- Fibonacci\n");
-        printf("                  [7]- Quit\n");
+        printf("                  [7]- Fibonacci\n");
+        printf("                  [8]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
         scanf("%d", &ans);
