@@ -76,6 +76,15 @@ void write_scores(int test){
         fprintf(f, "%.10f\n", timetime / o);
         fclose(f);
     }
+    else if (test == 7){
+        FILE *f = fopen("scores7.txt", "a");
+        if (f == NULL)
+        {
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
+    }
 
 }
 void mult_mat(int not){
@@ -227,6 +236,20 @@ void fib1(int not){
         endc();
     }
     write_scores(6);
+    printf("%.10f\n", timetime / o);
+}
+void division(int not){
+    int run = run_times();
+    for (o = 0; o < run; o++) {
+        printf("Pass %d\n", o + 1);
+        startc();
+        int z;
+        for (z = 0; z < not; z++) {
+
+        }
+        endc();
+    }
+    write_scores(7);
     printf("%.10f\n", timetime / o);
 }
 int main(void) {
