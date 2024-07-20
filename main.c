@@ -16,10 +16,11 @@ double endc(){
     return time_taken;
 }
 int run_times(){
-    int a;
-    printf("How many passes? (Higher is more accurate):");
-    scanf("%d", &a);
-    return a;
+//    int a;
+//    printf("How many passes? (Higher is more accurate):");
+//    scanf("%d", &a);
+//    return a;
+    return 10;
 }
 void write_scores(int test){
     if (test == 1){
@@ -185,7 +186,8 @@ void print_speed(int not){
     write_scores(3);
 }
 void string(int not){
-    char a[1000000] = "c", b = 'c';
+    char a[100000] = "c";
+    char b = 'c';
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
@@ -195,7 +197,8 @@ void string(int not){
             strncat(a, &b, 1);
         }
         endc();
-        char a[1000000] = "c", b = 'c';
+        int f;
+        a[0] = '\0';
     }
     printf("%.10f\n", timetime / o);
     write_scores(4);
@@ -239,23 +242,48 @@ void fib1(int not){
     printf("%.10f\n", timetime / o);
 }
 void division(int not){
-    double p;
-    double c = 68.65838503937458;
-    double d = 10.9273213637231;
+    int i = 250, j = 250;
+    int x = i, y = j;
+    double a[i][j];
+    double b[i][j];
+    double c[i][j];
+    for (x=0;x<i;x++){
+        for (y=0;y<j;y++){
+            a[x][y] = ((double) rand() / RAND_MAX) * (double)500;
+        }
+    }
+    for (x=0;x<i;x++){
+        for (y=0;y<j;y++){
+            b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
+        }
+    }
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            p = c/d;
+            for (x = 0; x < i; x++) {
+                for (y = 0; y < j; y++) {
+                    c[x][y] = (a[x][y] / b[x][y]);
+                }
+            }
+            for (x = 0; x < i; x++) {
+                for (y = 0; y < j; y++) {
+                    c[x][y] = 0;
+                }
+            }
         }
         endc();
     }
-    write_scores(7);
     printf("%.10f\n", timetime / o);
+    write_scores(7);
 }
 int main(void) {
+    while (1){
+        division(10000);
+        timetime = 0;
+    }
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
@@ -266,7 +294,7 @@ int main(void) {
         printf("                  [4]- String Concatenation\n");
         printf("                  [5]- Pi\n");
         printf("                  [6]- Fibonacci\n");
-        printf("                  [7]- Fibonacci\n");
+        printf("                  [7]- Matrix Division\n");
         printf("                  [8]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
@@ -290,6 +318,9 @@ int main(void) {
             fib1(10);
         }
         else if (ans == 7) {
+            division(10000);
+        }
+        else if (ans == 8) {
             return 0;
         }
         else {
