@@ -337,28 +337,28 @@ int main(void) {
             check_mat(10000);
         }
         else if (ans == 3) {
-            print_speed(1000);
+            print_speed(10000);
         }
         else if (ans == 4) {
-            string(10000);
+            string(10000000000);
         }
         else if (ans == 5) {
-            pi(10000);
+            pi(1000000000);
         }
         else if (ans == 6) {
-            fib1(10);
+            fib1(100);
         }
         else if (ans == 7) {
-            division(10000);
+            division(100000);
         }
         else if (ans == 8) {
-            doubles(1000000);
+            doubles(700000000);
         }
         else if (ans == 9) {
             return 0;
         }
         else {
-            continue;
+            printf("Not a valid option.\n");
         }
         system("pause");
     }
