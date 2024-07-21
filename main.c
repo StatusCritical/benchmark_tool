@@ -85,6 +85,15 @@ void write_scores(int test){
         fprintf(f, "%.10f\n", timetime / o);
         fclose(f);
     }
+    else if (test == 8){
+        FILE *f = fopen("scores8.txt", "a");
+        if (f == NULL)
+        {
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
+    }
 
 }
 void mult_mat(int not){
