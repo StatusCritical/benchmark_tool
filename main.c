@@ -305,7 +305,8 @@ int main(void) {
         printf("                  [5]- Pi\n");
         printf("                  [6]- Fibonacci\n");
         printf("                  [7]- Matrix Division\n");
-        printf("                  [8]- Quit\n");
+        printf("                  [8]- Doubling\n");
+        printf("                  [9]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
         scanf("%d", &ans);
@@ -331,6 +332,9 @@ int main(void) {
             division(10000);
         }
         else if (ans == 8) {
+            doubles(1000000);
+        }
+        else if (ans == 9) {
             return 0;
         }
         else {
