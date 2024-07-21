@@ -22,6 +22,7 @@ int run_times(){
     return a;
 }
 void write_scores(int test){
+    if (o == 0) return;
     if (test == 1){
         FILE *f = fopen("scores1.txt", "a");
         if (f == NULL)
@@ -200,12 +201,10 @@ void string(int not){
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
-        int z;
-        for (z = 0; z < not; z++) {
+        for (int z = 0; z < not && strlen(a) < sizeof(a) - 1; z++) {
             strncat(a, &b, 1);
         }
         endc();
-        int f;
         a[0] = '\0';
     }
     printf("%.10f\n", timetime / o);
