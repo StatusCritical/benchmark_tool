@@ -6,6 +6,10 @@ clock_t t;
 double time_taken;
 int o;
 double timetime;
+void reset() {
+    timetime = 0;
+    o = 0;
+}
 void startc(){
     t = clock();
 }
@@ -98,6 +102,7 @@ void write_scores(int test){
 
 }
 void mult_mat(int not){
+    reset();
     int i = 250, j = 250;
     int x = i, y = j;
     double a[i][j];
@@ -138,6 +143,7 @@ void mult_mat(int not){
     write_scores(1);
 }
 void check_mat(int not){
+    reset();
     int i = 250, j = 250;
     int x = i, y = j;
     double a[i][j];
@@ -181,6 +187,7 @@ void check_mat(int not){
     write_scores(2);
 }
 void print_speed(int not){
+    reset();
     int run = run_times();
     for (o = 0; o < run; o++) {
         startc();
@@ -195,6 +202,7 @@ void print_speed(int not){
     write_scores(3);
 }
 void string(int not){
+    reset();
     char a[100000] = "c";
     char b = 'c';
     int run = run_times();
@@ -211,6 +219,7 @@ void string(int not){
     write_scores(4);
 }
 void pi(int not){
+    reset();
     double p;
     double cir = 68.65838503937458;
     double rad = 10.9273213637231;
@@ -235,6 +244,7 @@ int fib(int n) {
     return fib(n-1) + fib(n-2);
 }
 void fib1(int not){
+    reset();
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
@@ -249,6 +259,7 @@ void fib1(int not){
     printf("%.10f\n", timetime / o);
 }
 void division(int not){
+    reset();
     int i = 250, j = 250;
     int x = i, y = j;
     double a[i][j];
@@ -287,6 +298,7 @@ void division(int not){
     write_scores(7);
 }
 void doubles(int not){
+    reset();
     long int a = 1.0;
     int run = run_times();
     for (o = 0; o < run; o++) {
@@ -349,6 +361,5 @@ int main(void) {
             continue;
         }
         system("pause");
-        timetime = 0;
     }
 }
