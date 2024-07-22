@@ -328,17 +328,6 @@ void doubles(int not){
     write_scores(8);
 }
 int main(void) {
-    int x = 250, y = 250, i = 250, j = 250;
-    printf("{");
-    for (x=0;x<i;x++){
-        printf("{");
-        for (y=0;y<j;y++){
-            printf("%lf,", ((double) rand() / RAND_MAX) * (double)500);
-        }
-        printf("},");
-    }
-    printf("}\n");
-
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
