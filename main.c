@@ -6,16 +6,13 @@ clock_t t;
 double time_taken;
 int o;
 double timetime;
-double a[250][250];
-double b[250][250];
+extern double a[250][250];
+extern double b[250][250];
 double c[250][250];
 void reset() {
     timetime = 0;
     o = 0;
     return;
-}
-void reset_mat(){
-    //a[][]= {};
 }
 void startc(){
     t = clock();
