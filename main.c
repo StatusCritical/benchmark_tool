@@ -9,9 +9,11 @@ double timetime;
 void reset() {
     timetime = 0;
     o = 0;
+    return;
 }
 void startc(){
     t = clock();
+    return;
 }
 double endc(){
     t = clock() - t;
@@ -21,7 +23,8 @@ double endc(){
 }
 int run_times(){
     int a;
-    printf("How many passes? (Higher is more accurate):");
+    printf("How many passes? (10 will take around 5-30 seconds depending on test)\n");
+    printf(">>");
     scanf("%d", &a);
     return a;
 }
@@ -31,6 +34,7 @@ void write_scores(int test){
         FILE *f = fopen("scores1.txt", "a");
         if (f == NULL)
         {
+            printf("Error writing to log file.\n");
             return;
         }
         fprintf(f, "%.10f\n", timetime / o);
@@ -40,6 +44,7 @@ void write_scores(int test){
         FILE *f = fopen("scores2.txt", "a");
         if (f == NULL)
         {
+            printf("Error writing to log file.\n");
             return;
         }
         fprintf(f, "%.10f\n", timetime / o);
@@ -49,6 +54,7 @@ void write_scores(int test){
         FILE *f = fopen("scores3.txt", "a");
         if (f == NULL)
         {
+            printf("Error writing to log file.\n");
             return;
         }
         fprintf(f, "%.10f\n", timetime / o);
@@ -58,6 +64,7 @@ void write_scores(int test){
         FILE *f = fopen("scores4.txt", "a");
         if (f == NULL)
         {
+            printf("Error writing to log file.\n");
             return;
         }
         fprintf(f, "%.10f\n", timetime / o);
@@ -67,6 +74,7 @@ void write_scores(int test){
         FILE *f = fopen("scores5.txt", "a");
         if (f == NULL)
         {
+            printf("Error writing to log file.\n");
             return;
         }
         fprintf(f, "%.10f\n", timetime / o);
@@ -76,6 +84,7 @@ void write_scores(int test){
         FILE *f = fopen("scores6.txt", "a");
         if (f == NULL)
         {
+            printf("Error writing to log file.\n");
             return;
         }
         fprintf(f, "%.10f\n", timetime / o);
@@ -85,6 +94,7 @@ void write_scores(int test){
         FILE *f = fopen("scores7.txt", "a");
         if (f == NULL)
         {
+            printf("Error writing to log file.\n");
             return;
         }
         fprintf(f, "%.10f\n", timetime / o);
@@ -94,6 +104,7 @@ void write_scores(int test){
         FILE *f = fopen("scores8.txt", "a");
         if (f == NULL)
         {
+            printf("Error writing to log file.\n");
             return;
         }
         fprintf(f, "%.10f\n", timetime / o);
@@ -194,14 +205,13 @@ void print_speed(int not){
         int z;
         for (z = 0; z < not; z++) {
             printf("qwertyuiopasdfghjklzxcvbnm1234567890!@#$^&*()-=_+[]{};':\",./<>?\n");
-
         }
         endc();
     }
     printf("%.10f\n", timetime / o);
     write_scores(3);
 }
-void string(int not){
+void string(long long int not){
     reset();
     char a[100000] = "c";
     char b = 'c';
@@ -236,8 +246,6 @@ void pi(int not){
     }
     printf("%.10f\n", timetime / o);
     write_scores(5);
-
-
 }
 int fib(int n) {
     if (n <= 1) return n;
