@@ -6,10 +6,16 @@ clock_t t;
 double time_taken;
 int o;
 double timetime;
+double a[250][250];
+double b[250][250];
+double c[250][250];
 void reset() {
     timetime = 0;
     o = 0;
     return;
+}
+void reset_mat(){
+    //a[][]= {};
 }
 void startc(){
     t = clock();
@@ -247,7 +253,7 @@ void pi(int not){
     printf("%.10f\n", timetime / o);
     write_scores(5);
 }
-int fib(int n) {
+float fib(int n) {
     if (n <= 1) return n;
     return fib(n-1) + fib(n-2);
 }
@@ -322,6 +328,17 @@ void doubles(int not){
     write_scores(8);
 }
 int main(void) {
+    int x = 250, y = 250, i = 250, j = 250;
+    printf("{");
+    for (x=0;x<i;x++){
+        printf("{");
+        for (y=0;y<j;y++){
+            printf("%lf,", ((double) rand() / RAND_MAX) * (double)500);
+        }
+        printf("},");
+    }
+    printf("}\n");
+
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
