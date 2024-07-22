@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-#include <wbemidl.h>
 clock_t t;
 double time_taken;
 int o;
@@ -11,6 +10,11 @@ double timetime;
 extern double a[250][250];
 extern double b[250][250];
 double c[250][250];
+void core() {
+    PROCESSOR_NUMBER ProcNumber;
+    GetCurrentProcessorNumberEx(&ProcNumber);
+    printf("Running on processor group %d, number %d.\n", ProcNumber.Group, ProcNumber.Number);
+}
 void reset() {
     timetime = 0;
     o = 0;
@@ -318,6 +322,7 @@ void doubles(int not){
 int main(void) {
     int ans;
     while (1) {
+        core();
         printf("---------------------------------------------------------------\n");
         printf("                  Welcome to benchmark.\n");
         printf("                  [1]- Float Matrix Multiplication\n");
