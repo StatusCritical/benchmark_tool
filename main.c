@@ -122,17 +122,6 @@ void mult_mat(int not){
     double a[i][j];
     double b[i][j];
     double c[i][j];
-    for (x=0;x<i;x++){
-        for (y=0;y<j;y++){
-            a[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-        }
-    }
-    for (x=0;x<i;x++){
-        for (y=0;y<j;y++){
-            b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-        }
-    }
-
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
