@@ -2,6 +2,8 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
+#include <wbemidl.h>
 clock_t t;
 double time_taken;
 int o;
@@ -14,9 +16,9 @@ void reset() {
     o = 0;
     return;
 }
-void startc(){
+double startc(){
     t = clock();
-    return;
+    return t;
 }
 double endc(){
     t = clock() - t;
