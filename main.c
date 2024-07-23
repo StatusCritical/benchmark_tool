@@ -338,10 +338,10 @@ int main(void) {
         printf(">>");
         scanf("%d", &ans);
         if (ans == 1) {
-            mult_mat(10000);
+            mult_mat(50000);
         }
         else if (ans == 2) {
-            check_mat(10000);
+            check_mat(50000);
         }
         else if (ans == 3) {
             print_speed(10000);
@@ -353,13 +353,13 @@ int main(void) {
             pi(1000000000);
         }
         else if (ans == 6) {
-            fib1(100);
+            fib1(200);
         }
         else if (ans == 7) {
-            division(100000);
+            division(500000);
         }
         else if (ans == 8) {
-            doubles(700000000);
+            doubles(900000000);
         }
         else if (ans == 9) {
             return 0;
