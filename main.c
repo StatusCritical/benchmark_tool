@@ -32,7 +32,7 @@ double endc(){
 }
 int run_times(){
     int a;
-    printf("How many passes? (10 will take around 5-30 seconds depending on test)\n");
+    printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
     printf(">>");
     scanf("%d", &a);
     return a;
@@ -125,9 +125,9 @@ void mult_mat(int not){
     reset();
     int i = 250, j = 250;
     int x = i, y = j;
-    double a[i][j];
-    double b[i][j];
-    double c[i][j];
+//    double a[i][j];
+//    double b[i][j];
+//    double c[i][j];
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
@@ -155,19 +155,19 @@ void check_mat(int not){
     reset();
     int i = 250, j = 250;
     int x = i, y = j;
-    double a[i][j];
-    double b[i][j];
-    double c[i][j];
-    for (x=0;x<i;x++){
-        for (y=0;y<j;y++){
-            a[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-        }
-    }
-    for (x=0;x<i;x++){
-        for (y=0;y<j;y++){
-            b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-        }
-    }
+//    double a[i][j];
+//    double b[i][j];
+//    double c[i][j];
+//    for (x=0;x<i;x++){
+//        for (y=0;y<j;y++){
+//            a[x][y] = ((double) rand() / RAND_MAX) * (double)500;
+//        }
+//    }
+//    for (x=0;x<i;x++){
+//        for (y=0;y<j;y++){
+//            b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
+//        }
+//    }
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
@@ -211,7 +211,7 @@ void print_speed(int not){
 }
 void string(long long int not){
     reset();
-    char a[100000] = "c";
+    char a[2000000] = "c";
     char b = 'c';
     int run = run_times();
     for (o = 0; o < run; o++) {
@@ -268,19 +268,19 @@ void division(int not){
     reset();
     int i = 250, j = 250;
     int x = i, y = j;
-    double a[i][j];
-    double b[i][j];
-    double c[i][j];
-    for (x=0;x<i;x++){
-        for (y=0;y<j;y++){
-            a[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-        }
-    }
-    for (x=0;x<i;x++){
-        for (y=0;y<j;y++){
-            b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-        }
-    }
+//    double a[i][j];
+//    double b[i][j];
+//    double c[i][j];
+//    for (x=0;x<i;x++){
+//        for (y=0;y<j;y++){
+//            a[x][y] = ((double) rand() / RAND_MAX) * (double)500;
+//        }
+//    }
+//    for (x=0;x<i;x++){
+//        for (y=0;y<j;y++){
+//            b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
+//        }
+//    }
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
@@ -322,9 +322,9 @@ void doubles(int not){
 int main(void) {
     int ans;
     while (1) {
-        core();
         printf("---------------------------------------------------------------\n");
         printf("                  Welcome to benchmark.\n");
+        core();
         printf("                  [1]- Float Matrix Multiplication\n");
         printf("                  [2]- Float Matrix Verification\n");
         printf("                  [3]- Console Print Speed\n");
@@ -344,19 +344,19 @@ int main(void) {
             check_mat(50000);
         }
         else if (ans == 3) {
-            print_speed(10000);
+            print_speed(1000);
         }
         else if (ans == 4) {
-            string(10000000000);
+            string(300000);
         }
         else if (ans == 5) {
-            pi(1000000000);
+            pi(500000000000);
         }
         else if (ans == 6) {
-            fib1(200);
+            fib1(150);
         }
         else if (ans == 7) {
-            division(500000);
+            division(50000);
         }
         else if (ans == 8) {
             doubles(900000000);
