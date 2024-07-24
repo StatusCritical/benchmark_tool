@@ -289,21 +289,54 @@ void doubles(int not){
     printf("%.10f\n", timetime / o);
     write_scores(8);
 }
+void file_write(int not){
+    reset();
+    FILE *f = fopen("test.txt", "a");
+    if (f == NULL)
+    {
+        printf("Error writing to test file.\n");
+        return;
+    }
+
+    int x, y;
+    int run = run_times();
+    for (o = 0; o < run; o++) {
+        printf("Pass %d\n", o + 1);
+        startc();
+        int z;
+        for (z = 0; z < not; z++) {
+            for (x = 0; x < 250; x++) {
+                for (y = 0; y < 250; y++) {
+                    printf("%.10f\n", a[x][y]);
+                }
+            }
+        }
+        endc();
+    }
+    printf("%.10f\n", timetime / o);
+    write_scores(7);
+
+
+    fprintf(f, "%.10f\n", timetime / o);
+
+    fclose(f);
+    return;
+}
 int main(void) {
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
-        printf("                  Welcome to benchmark.\n");
+        printf("                  Welcome to benchmark.\n          ");
         core();
-        printf("                  [1]- Float Matrix Multiplication\n");
-        printf("                  [2]- Float Matrix Verification\n");
-        printf("                  [3]- Console Print Speed\n");
-        printf("                  [4]- String Concatenation\n");
-        printf("                  [5]- Pi\n");
-        printf("                  [6]- Fibonacci\n");
-        printf("                  [7]- Matrix Division\n");
-        printf("                  [8]- Doubling\n");
-        printf("                  [9]- Quit\n");
+        printf("                [1]- Float Matrix Multiplication\n");
+        printf("                [2]- Float Matrix Verification\n");
+        printf("                [3]- Console Print Speed\n");
+        printf("                [4]- String Concatenation\n");
+        printf("                [5]- Pi\n");
+        printf("                [6]- Fibonacci\n");
+        printf("                [7]- Matrix Division\n");
+        printf("                [8]- Doubling\n");
+        printf("                [9]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
         scanf("%d", &ans);
