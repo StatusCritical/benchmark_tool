@@ -10,6 +10,12 @@ double timetime;
 extern double a[250][250];
 extern double b[250][250];
 extern double c[250][250];
+int when_record(){
+    int ans;
+    printf("Would you like to record individual tests or the average?[0]Each/[1]Average\n");
+    scanf("%d", &ans);
+    return ans;
+}
 void core() {
     PROCESSOR_NUMBER ProcNumber;
     GetCurrentProcessorNumberEx(&ProcNumber);
@@ -134,6 +140,7 @@ void mult_mat(int not){
     reset();
     int x,y;
     int run = run_times();
+    int record = when_record();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
 
@@ -152,14 +159,20 @@ void mult_mat(int not){
             }
         }
         endc();
+        if (record == 0){
+            write_scores(1);
+        }
     }
     printf("%.10f\n", timetime / o);
-    write_scores(1);
+    if (record == 1){
+        write_scores(1);
+    }
 }
 void check_mat(int not){
     reset();
     int x, y;
     int run = run_times();
+    int record = when_record();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -181,13 +194,19 @@ void check_mat(int not){
             }
         }
         endc();
+        if (record == 1){
+            write_scores(2);
+        }
     }
     printf("%.10f\n", timetime / o);
-    write_scores(2);
+    if (record == 1){
+        write_scores(2);
+    }
 }
 void print_speed(int not){
     reset();
     int run = run_times();
+    int record = when_record();
     for (o = 0; o < run; o++) {
         startc();
         int z;
@@ -195,9 +214,14 @@ void print_speed(int not){
             printf("qwertyuiopasdfghjklzxcvbnm1234567890!@#$^&*()-=_+[]{};':\",./<>?\n");
         }
         endc();
+        if (record == 1){
+            write_scores(3);
+        }
     }
     printf("%.10f\n", timetime / o);
-    write_scores(3);
+    if (record == 1){
+        write_scores(3);
+    }
 }
 void string(long long int not){
     reset();
