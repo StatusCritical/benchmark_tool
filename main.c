@@ -31,11 +31,11 @@ double endc(){
     return time_taken;
 }
 int run_times(){
-    int a;
+    int abc;
     printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
     printf(">>");
-    scanf("%d", &a);
-    return a;
+    scanf("%d", &abc);
+    return abc;
 }
 void write_scores(int test){
     if (o == 0) return;
@@ -123,11 +123,7 @@ void write_scores(int test){
 }
 void mult_mat(int not){
     reset();
-    int i = 250, j = 250;
-    int x = i, y = j;
-//    double a[i][j];
-//    double b[i][j];
-//    double c[i][j];
+    int x,y;
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
@@ -135,13 +131,13 @@ void mult_mat(int not){
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            for (x = 0; x < i; x++) {
-                for (y = 0; y < j; y++) {
+            for (x = 0; x < 250; x++) {
+                for (y = 0; y < 250; y++) {
                     c[x][y] = (a[x][y] * b[x][y]);
                 }
             }
-            for (x = 0; x < i; x++) {
-                for (y = 0; y < j; y++) {
+            for (x = 0; x < 250; x++) {
+                for (y = 0; y < 250; y++) {
                     c[x][y] = 0;
                 }
             }
@@ -153,30 +149,15 @@ void mult_mat(int not){
 }
 void check_mat(int not){
     reset();
-    int i = 250, j = 250;
-    int x = i, y = j;
-//    double a[i][j];
-//    double b[i][j];
-//    double c[i][j];
-//    for (x=0;x<i;x++){
-//        for (y=0;y<j;y++){
-//            a[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-//        }
-//    }
-//    for (x=0;x<i;x++){
-//        for (y=0;y<j;y++){
-//            b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-//        }
-//    }
+    int x, y;
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
-
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            for (x = 0; x < i; x++) {
-                for (y = 0; y < j; y++) {
+            for (x = 0; x < 250; x++) {
+                for (y = 0; y < 250; y++) {
                     if (a[x][y] == b[x][y]) {
                         c[x][y] = 2;
                     } else {
@@ -184,8 +165,8 @@ void check_mat(int not){
                     }
                 }
             }
-            for (x = 0; x < i; x++) {
-                for (y = 0; y < j; y++) {
+            for (x = 0; x < 250; x++) {
+                for (y = 0; y < 250; y++) {
                     c[x][y] = 0;
                 }
             }
@@ -211,17 +192,17 @@ void print_speed(int not){
 }
 void string(long long int not){
     reset();
-    char a[2000000] = "c";
-    char b = 'c';
+    char string[2000000] = "c";
+    char bb = 'c';
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         for (int z = 0; z < not && strlen(a) < sizeof(a) - 1; z++) {
-            strncat(a, &b, 1);
+            strncat(string, &bb, 1);
         }
         endc();
-        a[0] = '\0';
+        string[0] = '\0';
     }
     printf("%.10f\n", timetime / o);
     write_scores(4);
@@ -246,7 +227,9 @@ void pi(int not){
     write_scores(5);
 }
 float fib(int n) {
-    if (n <= 1) return n;
+    if (n <= 1){
+        return n;
+    }
     return fib(n-1) + fib(n-2);
 }
 void fib1(int not){
@@ -266,34 +249,20 @@ void fib1(int not){
 }
 void division(int not){
     reset();
-    int i = 250, j = 250;
-    int x = i, y = j;
-//    double a[i][j];
-//    double b[i][j];
-//    double c[i][j];
-//    for (x=0;x<i;x++){
-//        for (y=0;y<j;y++){
-//            a[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-//        }
-//    }
-//    for (x=0;x<i;x++){
-//        for (y=0;y<j;y++){
-//            b[x][y] = ((double) rand() / RAND_MAX) * (double)500;
-//        }
-//    }
+    int x = 250, y = 250;
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            for (x = 0; x < i; x++) {
-                for (y = 0; y < j; y++) {
+            for (x = 0; x < 250; x++) {
+                for (y = 0; y < 250; y++) {
                     c[x][y] = (a[x][y] / b[x][y]);
                 }
             }
-            for (x = 0; x < i; x++) {
-                for (y = 0; y < j; y++) {
+            for (x = 0; x < 250; x++) {
+                for (y = 0; y < 250; y++) {
                     c[x][y] = 0;
                 }
             }
@@ -305,14 +274,14 @@ void division(int not){
 }
 void doubles(int not){
     reset();
-    long int a = 1.0;
+    long int aa = 1.0;
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            a = a * 2;
+            aa = aa * 2;
         }
         endc();
     }
