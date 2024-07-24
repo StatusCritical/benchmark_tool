@@ -13,6 +13,7 @@ extern double c[250][250];
 int when_record(){
     int ans;
     printf("Would you like to record individual tests or the average?[0]Each/[1]Average\n");
+    printf(">>");
     scanf("%d", &ans);
     return ans;
 }
@@ -228,6 +229,7 @@ void string(long long int not){
     char string[2000000] = "c";
     char bb = 'c';
     int run = run_times();
+    int record = when_record();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -236,9 +238,14 @@ void string(long long int not){
         }
         endc();
         string[0] = '\0';
+        if (record == 0){
+            write_scores(4);
+        }
     }
     printf("%.10f\n", timetime / o);
-    write_scores(4);
+    if (record == 1){
+        write_scores(4);
+    }
 }
 void pi(int not){
     reset();
@@ -246,6 +253,7 @@ void pi(int not){
     double cir = 68.65838503937458;
     double rad = 10.9273213637231;
     int run = run_times();
+    int record = when_record();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -255,9 +263,14 @@ void pi(int not){
         }
         endc();
         p = 0;
+        if (record == 0){
+            write_scores(5);
+        }
     }
     printf("%.10f\n", timetime / o);
-    write_scores(5);
+    if (record == 1){
+        write_scores(5);
+    }
 }
 float fib(float n) {
     if (n <= 1){
@@ -268,6 +281,7 @@ float fib(float n) {
 void fib1(int not){
     reset();
     int run = run_times();
+    int record = when_record();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -276,14 +290,20 @@ void fib1(int not){
             fib(36);
         }
         endc();
+        if (record == 0){
+            write_scores(6);
+        }
     }
-    write_scores(6);
+    if (record == 1){
+        write_scores(6);
+    }
     printf("%.10f\n", timetime / o);
 }
 void division(int not){
     reset();
     int x, y;
     int run = run_times();
+    int record = when_record();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -301,14 +321,20 @@ void division(int not){
             }
         }
         endc();
+        if (record == 0){
+            write_scores(7);
+        }
     }
     printf("%.10f\n", timetime / o);
-    write_scores(7);
+    if (record == 1){
+        write_scores(7);
+    }
 }
 void doubles(int not){
     reset();
     long int aa = 1;
     int run = run_times();
+    int record = when_record();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -317,9 +343,14 @@ void doubles(int not){
             aa = aa * 2;
         }
         endc();
+        if (record == 0){
+            write_scores(8);
+        }
     }
     printf("%.10f\n", timetime / o);
-    write_scores(8);
+    if (record == 1){
+        write_scores(8);
+    }
 }
 void file_write(int not){
     reset();
@@ -330,6 +361,7 @@ void file_write(int not){
     }
     int x, y;
     int run = run_times();
+    int record = when_record();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -342,12 +374,17 @@ void file_write(int not){
             }
         }
         endc();
+        if (record == 0){
+            write_scores(9);
+        }
         test = fopen("test.txt", "w");
         fprintf(test, "");
     }
     printf("%.10f\n", timetime / o);
     fclose(test);
-    write_scores(9);
+    if (record == 1){
+        write_scores(9);
+    }
 }
 int main() {
     int ans;
