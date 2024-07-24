@@ -235,7 +235,7 @@ void pi(int not){
     printf("%.10f\n", timetime / o);
     write_scores(5);
 }
-float fib(int n) {
+float fib(float n) {
     if (n <= 1){
         return n;
     }
@@ -304,7 +304,6 @@ void file_write(int not){
         printf("Error writing to test file.\n");
         return;
     }
-
     int x, y;
     int run = run_times();
     for (o = 0; o < run; o++) {
@@ -320,17 +319,13 @@ void file_write(int not){
         }
         endc();
         test = fopen("test.txt", "w");
-        if (test == NULL) {
-            printf("Error writing to test file.\n");
-            return;
-        }
-        fprintf(test, "0");
+        fprintf(test, "");
     }
     printf("%.10f\n", timetime / o);
-    write_scores(9);
     fclose(test);
+    write_scores(9);
 }
-int main(void) {
+int main() {
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
