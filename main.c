@@ -14,12 +14,10 @@ void core() {
     PROCESSOR_NUMBER ProcNumber;
     GetCurrentProcessorNumberEx(&ProcNumber);
     printf("Running on processor group %d, number %d.\n", ProcNumber.Group, ProcNumber.Number);
-    return;
 }
 void reset() {
     timetime = 0;
     o = 0;
-    return;
 }
 double startc(){
     t = clock();
@@ -120,6 +118,16 @@ void write_scores(int test){
         fprintf(f, "%.10f\n", timetime / o);
         fclose(f);
     }
+    else if (test == 9){
+        FILE *f = fopen("scores9.txt", "a");
+        if (f == NULL)
+        {
+            printf("Error writing to log file.\n");
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
+    }
 
 }
 void mult_mat(int not){
@@ -199,7 +207,7 @@ void string(long long int not){
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
         startc();
-        for (int z = 0; z < not && strlen(a) < sizeof(a) - 1; z++) {
+        for (int z = 0; z < not && strlen(string) < sizeof(string) - 1; z++) {
             strncat(string, &bb, 1);
         }
         endc();
@@ -210,7 +218,7 @@ void string(long long int not){
 }
 void pi(int not){
     reset();
-    double p;
+    double p = 0;
     double cir = 68.65838503937458;
     double rad = 10.9273213637231;
     int run = run_times();
@@ -275,7 +283,7 @@ void division(int not){
 }
 void doubles(int not){
     reset();
-    long int aa = 1.0;
+    long int aa = 1;
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
@@ -311,7 +319,7 @@ void file_write(int not){
             }
         }
         endc();
-        FILE *test = fopen("test.txt", "w");
+        test = fopen("test.txt", "w");
         if (test == NULL) {
             printf("Error writing to test file.\n");
             return;
@@ -321,7 +329,6 @@ void file_write(int not){
     printf("%.10f\n", timetime / o);
     write_scores(9);
     fclose(test);
-    return;
 }
 int main(void) {
     int ans;
