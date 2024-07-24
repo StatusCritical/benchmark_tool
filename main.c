@@ -31,11 +31,12 @@ double endc(){
     return time_taken;
 }
 int run_times(){
-    int abc;
-    printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
-    printf(">>");
-    scanf("%d", &abc);
-    return abc;
+//    int abc;
+//    printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
+//    printf(">>");
+//    scanf("%d", &abc);
+//    return abc;
+    return 10;
 }
 void write_scores(int test){
     if (o == 0) return;
@@ -289,6 +290,16 @@ void doubles(int not){
     write_scores(8);
 }
 int main(void) {
+    while (1){
+        mult_mat(50000);
+        check_mat(50000);
+        print_speed(1000);
+        string(300000);
+        pi(500000000000);
+        fib1(150);
+        division(50000);
+        doubles(900000000);
+    }
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
