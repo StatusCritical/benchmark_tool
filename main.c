@@ -289,14 +289,26 @@ void doubles(int not){
     printf("%.10f\n", timetime / o);
     write_scores(8);
 }
+void open_test(int num){
+    if (num == 1) {
+        FILE *test = fopen("test.txt", "w");
+        if (test == NULL) {
+            printf("Error writing to test file.\n");
+            return;
+        }
+    }
+    else if (num == 2){
+        FILE *test = fopen("test.txt", "a");
+        if (test == NULL) {
+            printf("Error writing to test file.\n");
+            return;
+        }
+    }
+    return test;
+}
 void file_write(int not){
     reset();
-    FILE *f = fopen("test.txt", "a");
-    if (f == NULL)
-    {
-        printf("Error writing to test file.\n");
-        return;
-    }
+    open_test(2);
 
     int x, y;
     int run = run_times();
@@ -307,19 +319,20 @@ void file_write(int not){
         for (z = 0; z < not; z++) {
             for (x = 0; x < 250; x++) {
                 for (y = 0; y < 250; y++) {
-                    printf("%.10f\n", a[x][y]);
+                    fprintf(test, "%.10f\n", timetime / o);
                 }
             }
         }
         endc();
+        open_test(1);
     }
     printf("%.10f\n", timetime / o);
     write_scores(7);
 
 
-    fprintf(f, "%.10f\n", timetime / o);
 
-    fclose(f);
+
+    fclose(test);
     return;
 }
 int main(void) {
