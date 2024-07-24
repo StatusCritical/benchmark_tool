@@ -9,11 +9,12 @@ int o;
 double timetime;
 extern double a[250][250];
 extern double b[250][250];
-double c[250][250];
+extern double c[250][250];
 void core() {
     PROCESSOR_NUMBER ProcNumber;
     GetCurrentProcessorNumberEx(&ProcNumber);
     printf("Running on processor group %d, number %d.\n", ProcNumber.Group, ProcNumber.Number);
+    return;
 }
 void reset() {
     timetime = 0;
@@ -31,12 +32,11 @@ double endc(){
     return time_taken;
 }
 int run_times(){
-//    int abc;
-//    printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
-//    printf(">>");
-//    scanf("%d", &abc);
-//    return abc;
-    return 10;
+    int abc;
+    printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
+    printf(">>");
+    scanf("%d", &abc);
+    return abc;
 }
 void write_scores(int test){
     if (o == 0) return;
@@ -250,7 +250,7 @@ void fib1(int not){
 }
 void division(int not){
     reset();
-    int x = 250, y = 250;
+    int x, y;
     int run = run_times();
     for (o = 0; o < run; o++) {
         printf("Pass %d\n", o + 1);
@@ -290,11 +290,6 @@ void doubles(int not){
     write_scores(8);
 }
 int main(void) {
-    while (1){
-        mult_mat(50000);
-        check_mat(50000);
-        division(50000);
-    }
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
