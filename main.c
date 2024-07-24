@@ -293,12 +293,7 @@ int main(void) {
     while (1){
         mult_mat(50000);
         check_mat(50000);
-        print_speed(1000);
-        string(300000);
-        pi(500000000000);
-        fib1(150);
         division(50000);
-        doubles(900000000);
     }
     int ans;
     while (1) {
@@ -330,7 +325,7 @@ int main(void) {
             string(300000);
         }
         else if (ans == 5) {
-            pi(500000000000);
+            pi(1783793664);
         }
         else if (ans == 6) {
             fib1(150);
