@@ -387,17 +387,6 @@ void file_write(int not){
     }
 }
 int main() {
-    while(1){
-        mult_mat(50000);
-        check_mat(50000);
-        print_speed(1000);
-        string(300000);
-        pi(1783793664);
-        fib1(150);
-        division(50000);
-        doubles(900000000);
-        file_write(100);
-    }
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
