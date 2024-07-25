@@ -11,11 +11,12 @@ extern double a[250][250];
 extern double b[250][250];
 extern double c[250][250];
 int when_record(){
-    int ans;
-    printf("Would you like to record individual tests or the average?[0]Each/[1]Average\n");
-    printf(">>");
-    scanf("%d", &ans);
-    return ans;
+//    int ans;
+//    printf("Would you like to record individual tests or the average?[0]Each/[1]Average\n");
+//    printf(">>");
+//    scanf("%d", &ans);
+//    return ans;
+return 0;
 }
 void core() {
     PROCESSOR_NUMBER ProcNumber;
@@ -37,11 +38,12 @@ double endc(){
     return time_taken;
 }
 int run_times(){
-    int abc;
-    printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
-    printf(">>");
-    scanf("%d", &abc);
-    return abc;
+//    int abc;
+//    printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
+//    printf(">>");
+//    scanf("%d", &abc);
+//    return abc;
+      return 10;
 }
 void write_scores(int test){
     if (o == 0) return;
@@ -387,6 +389,17 @@ void file_write(int not){
     }
 }
 int main() {
+    while(1){
+        mult_mat(50000);
+        check_mat(50000);
+        print_speed(1000);
+        string(300000);
+        pi(1783793664);
+        fib1(150);
+        division(50000);
+        doubles(900000000);
+        file_write(100);
+    }
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
