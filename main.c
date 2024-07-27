@@ -412,7 +412,7 @@ int main() {
             check_mat(50000);
         }
         else if (ans == 3) {
-            print_speed(1000);
+            print_speed(2000);
         }
         else if (ans == 4) {
             string(300000);
@@ -424,7 +424,7 @@ int main() {
             fib1(150);
         }
         else if (ans == 7) {
-            division(50000);
+            division(70000);
         }
         else if (ans == 8) {
             doubles(900000000);
