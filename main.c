@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+#include "raylib.h"
+#define RAYGUI_IMPLEMENTATION
+#include "raygui.h"
 clock_t t;
 double time_taken;
 int o;
