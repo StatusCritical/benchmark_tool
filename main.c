@@ -3,9 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-#include "raylib.h"
-#define RAYGUI_IMPLEMENTATION
-#include "raygui.h"
 clock_t t;
 double time_taken;
 int o;
@@ -388,6 +385,38 @@ void file_write(int not){
     if (record == 1){
         write_scores(9);
     }
+}
+int fib3(int not) {
+    int a = 0, b = 1, c, i;
+    if (not == 0)
+        return a;
+    for (i = 2; i <= not; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return b;
+}
+void fib4(int not){
+    reset();
+    int run = run_times();
+    int record = when_record();
+    for (o = 0; o < run; o++) {
+        printf("Pass %d\n", o + 1);
+        startc();
+        int z;
+        for (z = 0;z<not;z++) {
+            fib2(36);
+        }
+        endc();
+        if (record == 0){
+            write_scores(10);
+        }
+    }
+    if (record == 1){
+        write_scores(10);
+    }
+    printf("%.10f\n", timetime / o);
 }
 int main() {
     int ans;
