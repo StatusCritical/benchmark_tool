@@ -135,6 +135,16 @@ void write_scores(int test){
         fprintf(f, "%.10f\n", timetime / o);
         fclose(f);
     }
+    else if (test == 10){
+        FILE *f = fopen("scores10.txt", "a");
+        if (f == NULL)
+        {
+            printf("Error writing to log file.\n");
+            return;
+        }
+        fprintf(f, "%.10f\n", timetime / o);
+        fclose(f);
+    }
 
 }
 void mult_mat(int not){
@@ -406,7 +416,7 @@ void fib4(int not){
         startc();
         int z;
         for (z = 0;z<not;z++) {
-            fib2(36);
+            fib3(36);
         }
         endc();
         if (record == 0){
@@ -466,7 +476,7 @@ int main() {
             file_write(100);
         }
         else if (ans == 10) {
-            fib3(100);
+            fib4(100);
         }
         else if (ans == 0) {
             return 0;
