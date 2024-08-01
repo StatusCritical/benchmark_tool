@@ -433,6 +433,7 @@ int main() {
         printf("                [7]- Matrix Division\n");
         printf("                [8]- Doubling\n");
         printf("                [9]- File Writing\n");
+        printf("                [10]- File Writing\n");
         printf("                [0]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
@@ -463,6 +464,9 @@ int main() {
         }
         else if (ans == 9) {
             file_write(100);
+        }
+        else if (ans == 10) {
+            fib3(100);
         }
         else if (ans == 0) {
             return 0;
