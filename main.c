@@ -397,15 +397,15 @@ void file_write(int not){
     }
 }
 int fib3(int not) {
-    int a = 0, b = 1, c, i;
+    int n1 = 0, n2 = 1, n3, i;
     if (not == 0)
-        return a;
+        return n1;
     for (i = 2; i <= not; i++) {
-        c = a + b;
-        a = b;
-        b = c;
+        n3 = n1 + n2;
+        n1 = n2;
+        n2 = n3;
     }
-    return b;
+    return n2;
 }
 void fib4(int not){
     reset();
@@ -416,7 +416,7 @@ void fib4(int not){
         startc();
         int z;
         for (z = 0;z<not;z++) {
-            fib3(36);
+            fib3(40000);
         }
         endc();
         if (record == 0){
@@ -476,7 +476,7 @@ int main() {
             file_write(100);
         }
         else if (ans == 10) {
-            fib4(100);
+            fib4(100000);
         }
         else if (ans == 0) {
             return 0;
