@@ -258,12 +258,11 @@ void write_all_scores(int test){
         fclose(f);
     }
 }
-void mult_mat(int not){
+void mult_mat(int not, int runs){
     reset();
     int x,y;
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
 
         startc();
@@ -290,12 +289,11 @@ void mult_mat(int not){
         write_scores(1);
     }
 }
-void check_mat(int not){
+void check_mat(int not, int runs){
     reset();
     int x, y;
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
@@ -325,11 +323,11 @@ void check_mat(int not){
         write_scores(2);
     }
 }
-void print_speed(int not){
+void print_speed(int not, int runs){
     reset();
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         startc();
         int z;
         for (z = 0; z < not; z++) {
@@ -345,13 +343,13 @@ void print_speed(int not){
         write_scores(3);
     }
 }
-void string(long long int not){
+void string(long long int not, int runs){
     reset();
     char string[2000000] = "c";
     char bb = 'c';
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         for (int z = 0; z < not && strlen(string) < sizeof(string) - 1; z++) {
@@ -368,14 +366,14 @@ void string(long long int not){
         write_scores(4);
     }
 }
-void pi(int not){
+void pi(int not, int runs){
     reset();
     double p = 0;
     double cir = 68.65838503937458;
     double rad = 10.9273213637231;
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
@@ -399,11 +397,11 @@ float fib(float n) {
     }
     return fib(n-1) + fib(n-2);
 }
-void fib1(int not){
+void fib1(int not, int runs){
     reset();
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
@@ -420,12 +418,12 @@ void fib1(int not){
     }
     printf("%.10f\n", timetime / o);
 }
-void division(int not){
+void division(int not, int runs){
     reset();
     int x, y;
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
@@ -451,12 +449,12 @@ void division(int not){
         write_scores(7);
     }
 }
-void doubles(int not){
+void doubles(int not, int runs){
     reset();
     long int number1 = 1;
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
@@ -473,7 +471,7 @@ void doubles(int not){
         write_scores(8);
     }
 }
-void file_write(int not){
+void file_write(int not, int runs){
     reset();
     FILE *test = fopen("test.txt", "a");
     if (test == NULL) {
@@ -481,9 +479,9 @@ void file_write(int not){
         return;
     }
     int x, y;
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
@@ -518,11 +516,11 @@ int fib3(int not) {
     }
     return n2;
 }
-void fib4(int not){
+void fib4(int not, int runs){
     reset();
-    int run = run_times();
-    int record = when_record();
-    for (o = 0; o < run; o++) {
+    
+    int record = when_record(0);
+    for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
@@ -554,34 +552,34 @@ void queue(){
     }
     for (int i = 0; i < o; i++){
         if (tests[i] == 1){
-            mult_mat(50000);
+            mult_mat(50000, run_times(runs[i]));
         }
         else if (tests[i] == 2){
-            check_mat(50000);
+            check_mat(50000, run_times(runs[i]));
         }
         else if (tests[i] == 3){
-            print_speed(2000);
+            print_speed(2000, run_times(runs[i]));
         }
         else if (tests[i] == 4){
-            string(300000);
+            string(300000, run_times(runs[i]));
         }
         else if (tests[i] == 5){
-            pi(1783793664);
+            pi(1783793664, run_times(runs[i]));
         }
         else if (tests[i] == 6){
-            fib1(150);
+            fib1(150, run_times(runs[i]));
         }
         else if (tests[i] == 7){
-            division(70000);
+            division(70000, run_times(runs[i]));
         }
         else if (tests[i] == 8){
-            doubles(900000000);
+            doubles(900000000, run_times(runs[i]));
         }
         else if (tests[i] == 9){
-            file_write(100);
+            file_write(100, run_times(runs[i]));
         }
         else if (tests[i] == 10){
-            fib4(100000);
+            fib4(100000, run_times(runs[i]));
         }
     }
 }
@@ -607,34 +605,34 @@ int main() {
         printf(">>");
         scanf("%d", &ans);
         if (ans == 1) {
-            mult_mat(50000);
+            mult_mat(50000, run_times(0));
         }
         else if (ans == 2) {
-            check_mat(50000);
+            check_mat(50000, run_times(0));
         }
         else if (ans == 3) {
-            print_speed(2000);
+            print_speed(2000, run_times(0));
         }
         else if (ans == 4) {
-            string(300000);
+            string(300000, run_times(0));
         }
         else if (ans == 5) {
-            pi(1783793664);
+            pi(1783793664, run_times(0));
         }
         else if (ans == 6) {
-            fib1(150);
+            fib1(150, run_times(0));
         }
         else if (ans == 7) {
-            division(70000);
+            division(70000, run_times(0));
         }
         else if (ans == 8) {
-            doubles(900000000);
+            doubles(900000000, run_times(0));
         }
         else if (ans == 9) {
-            file_write(100);
+            file_write(100, run_times(0));
         }
         else if (ans == 10) {
-            fib4(100000);
+            fib4(100000, run_times(0));
         }
         else if (ans == 11) {
             queue();
