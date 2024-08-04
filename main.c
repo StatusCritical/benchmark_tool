@@ -20,7 +20,7 @@ int when_record(){
 void core() {
     PROCESSOR_NUMBER ProcNumber;
     GetCurrentProcessorNumberEx(&ProcNumber);
-    printf("Running on processor group %d, number %d.\n", ProcNumber.Group, ProcNumber.Number);
+    printf("Running program on processor group %d, number %d.\n", ProcNumber.Group, ProcNumber.Number);
 }
 void reset() {
     timetime = 0;
@@ -443,7 +443,7 @@ void division(int not){
 }
 void doubles(int not){
     reset();
-    long int aa = 1;
+    long int number1 = 1;
     int run = run_times();
     int record = when_record();
     for (o = 0; o < run; o++) {
@@ -451,7 +451,7 @@ void doubles(int not){
         startc();
         int z;
         for (z = 0; z < not; z++) {
-            aa = aa * 2;
+            number1 = number1 * 2;
         }
         endc();
         if (record == 0){
@@ -501,7 +501,7 @@ int fib3(int not) {
     int n1 = 0, n2 = 1, n3, i;
     if (not == 0)
         return n1;
-    for (i = 2; i <= not; i++) {
+    for (i = 0; i <= not; i++) {
         n3 = n1 + n2;
         n1 = n2;
         n2 = n3;
