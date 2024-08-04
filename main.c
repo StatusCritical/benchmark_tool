@@ -54,8 +54,50 @@ int run_times(int num){
     }
 }
 void queue(){
-    printf();
-    scanf();
+    int tests[50];
+    int runs[50];
+    while (1){
+        printf("Enter the test number you would like to run:");
+        scanf("%d", &tests[o]);
+        if (tests[o] == 0){
+            break;
+        }
+        printf("Enter the total runs of that test:");
+        scanf("%d", &runs[o]);
+        o++;
+    }
+    for (int i = 0; i < o; i++){
+        if (tests[i] == 1){
+            mult_mat(runs[i]);
+        }
+        else if (tests[i] == 2){
+            check_mat(runs[i]);
+        }
+        else if (tests[i] == 3){
+            print_speed(runs[i]);
+        }
+        else if (tests[i] == 4){
+            string(runs[i]);
+        }
+        else if (tests[i] == 5){
+            pi(runs[i]);
+        }
+        else if (tests[i] == 6){
+            fib1(runs[i]);
+        }
+        else if (tests[i] == 7){
+            division(runs[i]);
+        }
+        else if (tests[i] == 8){
+            doubles(runs[i]);
+        }
+        else if (tests[i] == 9){
+            file_write(runs[i]);
+        }
+        else if (tests[i] == 10){
+            fib4(runs[i]);
+        }
+    }
 }
 void write_scores(int test){
     if (o == 0) return;
