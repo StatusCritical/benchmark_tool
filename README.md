@@ -20,5 +20,9 @@ Test 8: Doubling\
  Takes a number and doubles it many times.\
 Test 9: File Writing\
     Writes a matrix to a file on disk.\
+Test 10: Fibonacci The Second\
+    Just fibonacci in the other direction.
+
 Logs:\
 Each test has its own log, stored in an auto created file called scoresN.txt, N being the test number.\
+In case of a missing file, you may create the file yourself and store it in the same directory as the executable.
