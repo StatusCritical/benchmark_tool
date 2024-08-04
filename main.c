@@ -53,52 +53,6 @@ int run_times(int num){
         return num;
     }
 }
-void queue(){
-    int tests[50];
-    int runs[50];
-    while (1){
-        printf("Enter the test number you would like to run:");
-        scanf("%d", &tests[o]);
-        if (tests[o] == 0){
-            break;
-        }
-        printf("Enter the total runs of that test:");
-        scanf("%d", &runs[o]);
-        o++;
-    }
-    for (int i = 0; i < o; i++){
-        if (tests[i] == 1){
-            mult_mat(runs[i]);
-        }
-        else if (tests[i] == 2){
-            check_mat(runs[i]);
-        }
-        else if (tests[i] == 3){
-            print_speed(runs[i]);
-        }
-        else if (tests[i] == 4){
-            string(runs[i]);
-        }
-        else if (tests[i] == 5){
-            pi(runs[i]);
-        }
-        else if (tests[i] == 6){
-            fib1(runs[i]);
-        }
-        else if (tests[i] == 7){
-            division(runs[i]);
-        }
-        else if (tests[i] == 8){
-            doubles(runs[i]);
-        }
-        else if (tests[i] == 9){
-            file_write(runs[i]);
-        }
-        else if (tests[i] == 10){
-            fib4(runs[i]);
-        }
-    }
-}
 void write_scores(int test){
     if (o == 0) return;
     if (test == 1){
@@ -585,6 +539,52 @@ void fib4(int not){
     }
     printf("%.10f\n", timetime / o);
 }
+void queue(){
+    int tests[50];
+    int runs[50];
+    while (1){
+        printf("Enter the test number you would like to run:");
+        scanf("%d", &tests[o]);
+        if (tests[o] == 0){
+            break;
+        }
+        printf("Enter the total runs of that test:");
+        scanf("%d", &runs[o]);
+        o++;
+    }
+    for (int i = 0; i < o; i++){
+        if (tests[i] == 1){
+            mult_mat(50000);
+        }
+        else if (tests[i] == 2){
+            check_mat(50000);
+        }
+        else if (tests[i] == 3){
+            print_speed(2000);
+        }
+        else if (tests[i] == 4){
+            string(300000);
+        }
+        else if (tests[i] == 5){
+            pi(1783793664);
+        }
+        else if (tests[i] == 6){
+            fib1(150);
+        }
+        else if (tests[i] == 7){
+            division(70000);
+        }
+        else if (tests[i] == 8){
+            doubles(900000000);
+        }
+        else if (tests[i] == 9){
+            file_write(100);
+        }
+        else if (tests[i] == 10){
+            fib4(100000);
+        }
+    }
+}
 int main() {
     int ans;
     while (1) {
@@ -601,6 +601,7 @@ int main() {
         printf("                [8]- Doubling\n");
         printf("                [9]- File Writing\n");
         printf("                [10]- File Writing\n");
+        printf("                [11]- Set up a queue of tests.\n");
         printf("                [0]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
@@ -634,6 +635,9 @@ int main() {
         }
         else if (ans == 10) {
             fib4(100000);
+        }
+        else if (ans == 11) {
+            queue();
         }
         else if (ans == 0) {
             return 0;
