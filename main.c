@@ -547,8 +547,7 @@ void queue(){
         if (tests[o] == 0){
             break;
         }
-        printf("Enter the total runs of that test:");
-        scanf("%d", &runs[o]);
+        runs[o] = run_times(0);
         o++;
     }
     rec = when_record(0);
