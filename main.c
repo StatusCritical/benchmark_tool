@@ -10,12 +10,17 @@ double timetime;
 extern double a[250][250];
 extern double b[250][250];
 extern double c[250][250];
-int when_record(){
-    int ans;
-    printf("Would you like to record individual tests or the average?[0]Each/[1]Average/[2]None\n");
-    printf(">>");
-    scanf("%d", &ans);
-    return ans;
+int when_record(int num){
+    if (num == 0){
+        int ans;
+        printf("Would you like to record individual tests or the average?[0]Each/[1]Average/[2]None\n");
+        printf(">>");
+        scanf("%d", &ans);
+        return ans;
+    }
+    else {
+        return num;
+    }
 }
 void core() {
     PROCESSOR_NUMBER ProcNumber;
@@ -36,12 +41,21 @@ double endc(){
     timetime+=(double)time_taken;
     return time_taken;
 }
-int run_times(){
-    int abc;
-    printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
-    printf(">>");
-    scanf("%d", &abc);
-    return abc;
+int run_times(int num){
+    if (num == 0) {
+        int abc;
+        printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
+        printf(">>");
+        scanf("%d", &abc);
+        return abc;
+    }
+    else {
+        return num;
+    }
+}
+void queue(){
+    printf();
+    scanf();
 }
 void write_scores(int test){
     if (o == 0) return;
