@@ -43,11 +43,11 @@ double endc(){
 }
 int run_times(int num){
     if (num == 0) {
-        int abc;
+        int ans;
         printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
         printf(">>");
-        scanf("%d", &abc);
-        return abc;
+        scanf("%d", &ans);
+        return ans;
     }
     else {
         return num;
@@ -261,7 +261,6 @@ void write_all_scores(int test){
 void mult_mat(int not, int runs, int record){
     reset();
     int x,y;
-    
     for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
 
@@ -346,14 +345,14 @@ void print_speed(int not, int runs, int record){
 void string(long long int not, int runs, int record){
     reset();
     char string[2000000] = "c";
-    char bb = 'c';
+    char adding = 'c';
     
     
     for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         for (int z = 0; z < not && strlen(string) < sizeof(string) - 1; z++) {
-            strncat(string, &bb, 1);
+            strncat(string, &adding, 1);
         }
         endc();
         string[0] = '\0';
@@ -368,9 +367,9 @@ void string(long long int not, int runs, int record){
 }
 void pi(int not, int runs, int record){
     reset();
-    double p = 0;
-    double cir = 68.65838503937458;
-    double rad = 10.9273213637231;
+    long double p = 0;
+    long double cir = 68.65838503937458;
+    long double rad = 10.9273213637231;
     
     
     for (o = 0; o < runs; o++) {
@@ -391,16 +390,14 @@ void pi(int not, int runs, int record){
         write_scores(5);
     }
 }
-float fib(float n) {
-    if (n <= 1){
-        return n;
+float fib(float num) {
+    if (num <= 1){
+        return num;
     }
-    return fib(n-1) + fib(n-2);
+    return fib(num-1) + fib(num-2);
 }
 void fib1(int not, int runs, int record){
     reset();
-    
-    
     for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -421,8 +418,6 @@ void fib1(int not, int runs, int record){
 void division(int not, int runs, int record){
     reset();
     int x, y;
-    
-    
     for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -507,8 +502,6 @@ void file_write(int not, int runs, int record){
 }
 int fib3(int not) {
     int n1 = 0, n2 = 1, n3, i;
-    if (not == 0)
-        return n1;
     for (i = 0; i <= not; i++) {
         n3 = n1 + n2;
         n1 = n2;
@@ -518,8 +511,6 @@ int fib3(int not) {
 }
 void fib4(int not, int runs, int record){
     reset();
-    
-    
     for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
@@ -541,17 +532,18 @@ void queue(){
     int tests[50];
     int runs[50];
     int rec;
+    int run = 0;
     while (1){
         printf("Enter the test number you would like to run or 0 to finish:");
-        scanf("%d", &tests[o]);
-        if (tests[o] == 0){
+        scanf("%d", &tests[run]);
+        if (tests[run] <= 0 || tests[run] > 10){
             break;
         }
-        runs[o] = run_times(0);
-        o++;
+        runs[run] = run_times(0);
+        run++;
     }
     rec = when_record(0);
-    for (int i = 0; i < o; i++){
+    for (int i = 0; i < run; i++){
         if (tests[i] == 1){
             mult_mat(50000, run_times(runs[i]), rec);
         }
