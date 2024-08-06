@@ -7,7 +7,7 @@ Test 1: Matrix Multiplication\
 Test 2: Matrix Logic\
     Compares two 250x250 matrices together and writes result to a third matrix.\
 Test 3: Console Print\
-    Prints out a series of characters t the console to test print speed.\
+    Prints out a series of characters to the console to test print speed.\
 Test 4: String Concatenation\
     Concatenates two strings together many times.\
 Test 5: Pi\
