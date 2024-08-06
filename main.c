@@ -3,9 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+
+//global vars that should numberOfTimes exist
 clock_t t;
 double time_taken;
 int o;
+
+
 double timetime;
 extern double a[250][250];
 extern double b[250][250];
@@ -22,7 +26,7 @@ int when_record(int num){
         return num;
     }
 }
-void core() {
+void printCores() {
     PROCESSOR_NUMBER ProcNumber;
     GetCurrentProcessorNumberEx(&ProcNumber);
     printf("Running program on processor group %d, number %d.\n", ProcNumber.Group, ProcNumber.Number);
@@ -258,7 +262,7 @@ void write_all_scores(int test){
         fclose(f);
     }
 }
-void mult_mat(int not, int runs, int record){
+void mult_mat(int numberOfTimes, int runs, int record){
     reset();
     int x,y;
     for (o = 0; o < runs; o++) {
@@ -266,7 +270,7 @@ void mult_mat(int not, int runs, int record){
 
         startc();
         int z;
-        for (z = 0; z < not; z++) {
+        for (z = 0; z < numberOfTimes; z++) {
             for (x = 0; x < 250; x++) {
                 for (y = 0; y < 250; y++) {
                     c[x][y] = (a[x][y] * b[x][y]);
@@ -288,7 +292,7 @@ void mult_mat(int not, int runs, int record){
         write_scores(1);
     }
 }
-void check_mat(int not, int runs, int record){
+void check_mat(int numberOfTimes, int runs, int record){
     reset();
     int x, y;
     
@@ -296,7 +300,7 @@ void check_mat(int not, int runs, int record){
         printf("Pass %d\n", o + 1);
         startc();
         int z;
-        for (z = 0; z < not; z++) {
+        for (z = 0; z < numberOfTimes; z++) {
             for (x = 0; x < 250; x++) {
                 for (y = 0; y < 250; y++) {
                     if (a[x][y] == b[x][y]) {
@@ -322,14 +326,14 @@ void check_mat(int not, int runs, int record){
         write_scores(2);
     }
 }
-void print_speed(int not, int runs, int record){
+void print_speed(int numberOfTimes, int runs, int record){
     reset();
     
     
     for (o = 0; o < runs; o++) {
         startc();
         int z;
-        for (z = 0; z < not; z++) {
+        for (z = 0; z < numberOfTimes; z++) {
             printf("qwertyuiopasdfghjklzxcvbnm1234567890!@#$^&*()-=_+[]{};':\",./<>?\n");
         }
         endc();
@@ -342,7 +346,7 @@ void print_speed(int not, int runs, int record){
         write_scores(3);
     }
 }
-void string(long long int not, int runs, int record){
+void string(long long int numberOfTimes, int runs, int record){
     reset();
     char string[2000000] = "c";
     char adding = 'c';
@@ -351,7 +355,7 @@ void string(long long int not, int runs, int record){
     for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
-        for (int z = 0; z < not && strlen(string) < sizeof(string) - 1; z++) {
+        for (int z = 0; z < numberOfTimes && strlen(string) < sizeof(string) - 1; z++) {
             strncat(string, &adding, 1);
         }
         endc();
@@ -365,7 +369,7 @@ void string(long long int not, int runs, int record){
         write_scores(4);
     }
 }
-void pi(int not, int runs, int record){
+void pi(int numberOfTimes, int runs, int record){
     reset();
     long double p = 0;
     long double cir = 68.65838503937458;
@@ -376,7 +380,7 @@ void pi(int not, int runs, int record){
         printf("Pass %d\n", o + 1);
         startc();
         int z;
-        for (z = 0; z < not; z++) {
+        for (z = 0; z < numberOfTimes; z++) {
             p = cir/(rad*2);
         }
         endc();
@@ -396,13 +400,13 @@ float fib(float num) {
     }
     return fib(num-1) + fib(num-2);
 }
-void fib1(int not, int runs, int record){
+void fib1(int numberOfTimes, int runs, int record){
     reset();
     for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
-        for (z = 0; z < not; z++) {
+        for (z = 0; z < numberOfTimes; z++) {
             fib(36);
         }
         endc();
@@ -415,14 +419,14 @@ void fib1(int not, int runs, int record){
     }
     printf("%.10f\n", timetime / o);
 }
-void division(int not, int runs, int record){
+void division(int numberOfTimes, int runs, int record){
     reset();
     int x, y;
     for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
-        for (z = 0; z < not; z++) {
+        for (z = 0; z < numberOfTimes; z++) {
             for (x = 0; x < 250; x++) {
                 for (y = 0; y < 250; y++) {
                     c[x][y] = (a[x][y] / b[x][y]);
@@ -444,7 +448,7 @@ void division(int not, int runs, int record){
         write_scores(7);
     }
 }
-void doubles(int not, int runs, int record){
+void doubles(int numberOfTimes, int runs, int record){
     reset();
     long int number1 = 1;
     
@@ -453,7 +457,7 @@ void doubles(int not, int runs, int record){
         printf("Pass %d\n", o + 1);
         startc();
         int z;
-        for (z = 0; z < not; z++) {
+        for (z = 0; z < numberOfTimes; z++) {
             number1 = number1 * 2;
         }
         endc();
@@ -466,7 +470,7 @@ void doubles(int not, int runs, int record){
         write_scores(8);
     }
 }
-void file_write(int not, int runs, int record){
+void file_write(int numberOfTimes, int runs, int record){
     reset();
     FILE *test = fopen("test.txt", "a");
     if (test == NULL) {
@@ -480,7 +484,7 @@ void file_write(int not, int runs, int record){
         printf("Pass %d\n", o + 1);
         startc();
         int z;
-        for (z = 0; z < not; z++) {
+        for (z = 0; z < numberOfTimes; z++) {
             for (x = 0; x < 250; x++) {
                 for (y = 0; y < 250; y++) {
                     fprintf(test, "%.10f\n", a[x][y]);
@@ -500,22 +504,22 @@ void file_write(int not, int runs, int record){
         write_scores(9);
     }
 }
-int fib3(int not) {
+int fib3(int numberOfTimes) {
     int n1 = 0, n2 = 1, n3, i;
-    for (i = 0; i <= not; i++) {
+    for (i = 0; i <= numberOfTimes; i++) {
         n3 = n1 + n2;
         n1 = n2;
         n2 = n3;
     }
     return n2;
 }
-void fib4(int not, int runs, int record){
+void fib4(int numberOfTimes, int runs, int record){
     reset();
     for (o = 0; o < runs; o++) {
         printf("Pass %d\n", o + 1);
         startc();
         int z;
-        for (z = 0;z<not;z++) {
+        for (z = 0;z<numberOfTimes;z++) {
             fib3(40000);
         }
         endc();
@@ -581,7 +585,7 @@ int main() {
     while (1) {
         printf("---------------------------------------------------------------\n");
         printf("                  Welcome to benchmark.\n          ");
-        core();
+        printCores();
         printf("                [1]- Float Matrix Multiplication\n");
         printf("                [2]- Float Matrix Verification\n");
         printf("                [3]- Console Print Speed\n");
@@ -634,7 +638,7 @@ int main() {
             return 0;
         }
         else {
-            printf("Not a valid option.\n");
+            printf("numberOfTimes a valid option.\n");
         }
         system("pause");
     }
