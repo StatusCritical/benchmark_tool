@@ -1,6 +1,7 @@
 # **Benchmarking Tool for Windows**
 
-This benchmarking tool for Windows uses a multicore load and stress spikes to test system performance. While results can vary due to background programs, the tool provides a general idea of how well a system can handle stress from common processes.
+This benchmarking tool for Windows uses a multicore load and stress spikes to test system performance.
+While results can vary due to background programs, the tool provides a general idea of how well a system can handle stress from common processes.
 
 ## **Tests**
 
