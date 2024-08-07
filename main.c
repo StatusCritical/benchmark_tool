@@ -41,16 +41,16 @@ double endc(){
     timetime+=(double)time_taken;
     return time_taken;
 }
-int run_times(int num){
-    if (num == 0) {
-        int ans;
+int run_times(int indicator){
+    if (indicator == 0) {
+        int answer;
         printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
         printf(">>");
-        scanf("%d", &ans);
-        return ans;
+        scanf("%d", &answer);
+        return answer;
     }
     else {
-        return num;
+        return indicator;
     }
 }
 void write_scores(int test){
