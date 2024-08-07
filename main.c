@@ -5,21 +5,21 @@
 #include <windows.h>
 clock_t t;
 double time_taken;
-int o;
+int passloop;
 double timetime;
-extern double a[250][250];
-extern double b[250][250];
+extern double m1[250][250];
+extern double m2[250][250];
 extern double c[250][250];
-int when_record(int num){
-    if (num == 0){
-        int ans;
+int when_record(int indicator){
+    if (indicator == 0){
+        int answer;
         printf("Would you like to record individual tests or the average?[0]Each/[1]Average/[2]None\n");
         printf(">>");
-        scanf("%d", &ans);
-        return ans;
+        scanf("%d", &answer);
+        return answer;
     }
     else {
-        return num;
+        return indicator;
     }
 }
 void core() {
@@ -29,7 +29,7 @@ void core() {
 }
 void reset() {
     timetime = 0;
-    o = 0;
+    passloop = 0;
 }
 double startc(){
     t = clock();
@@ -54,7 +54,7 @@ int run_times(int num){
     }
 }
 void write_scores(int test){
-    if (o == 0) return;
+    if (passloop == 0) return;
     if (test == 1){
         FILE *f = fopen("scores1.txt", "a");
         if (f == NULL)
@@ -62,7 +62,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
     else if (test == 2){
@@ -72,7 +72,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
     else if (test == 3){
@@ -82,7 +82,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
     else if (test == 4){
@@ -92,7 +92,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
     else if (test == 5){
@@ -102,7 +102,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
     else if (test == 6){
@@ -112,7 +112,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
     else if (test == 7){
@@ -122,7 +122,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
     else if (test == 8){
@@ -132,7 +132,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
     else if (test == 9){
@@ -142,7 +142,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
     else if (test == 10){
@@ -152,7 +152,7 @@ void write_scores(int test){
             printf("Error writing to log file.\n");
             return;
         }
-        fprintf(f, "%.10f\n", timetime / o);
+        fprintf(f, "%.10f\n", timetime / passloop);
         fclose(f);
     }
 }
@@ -261,15 +261,15 @@ void write_all_scores(int test){
 void mult_mat(int not, int runs, int record){
     reset();
     int x,y;
-    for (o = 0; o < runs; o++) {
-        printf("Pass %d\n", o + 1);
+    for (passloop = 0; passloop < runs; passloop++) {
+        printf("Pass %d\n", passloop + 1);
 
         startc();
         int z;
         for (z = 0; z < not; z++) {
             for (x = 0; x < 250; x++) {
                 for (y = 0; y < 250; y++) {
-                    c[x][y] = (a[x][y] * b[x][y]);
+                    c[x][y] = (m1[x][y] * m2[x][y]);
                 }
             }
             for (x = 0; x < 250; x++) {
@@ -283,7 +283,7 @@ void mult_mat(int not, int runs, int record){
             write_all_scores(1);
         }
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
     if (record == 1){
         write_scores(1);
     }
@@ -292,14 +292,14 @@ void check_mat(int not, int runs, int record){
     reset();
     int x, y;
     
-    for (o = 0; o < runs; o++) {
-        printf("Pass %d\n", o + 1);
+    for (passloop = 0; passloop < runs; passloop++) {
+        printf("Pass %d\n", passloop + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
             for (x = 0; x < 250; x++) {
                 for (y = 0; y < 250; y++) {
-                    if (a[x][y] == b[x][y]) {
+                    if (m1[x][y] == m2[x][y]) {
                         c[x][y] = 2;
                     } else {
                         c[x][y] = 1;
@@ -317,7 +317,7 @@ void check_mat(int not, int runs, int record){
             write_all_scores(2);
         }
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
     if (record == 1){
         write_scores(2);
     }
@@ -326,7 +326,7 @@ void print_speed(int not, int runs, int record){
     reset();
     
     
-    for (o = 0; o < runs; o++) {
+    for (passloop = 0; passloop < runs; passloop++) {
         startc();
         int z;
         for (z = 0; z < not; z++) {
@@ -337,7 +337,7 @@ void print_speed(int not, int runs, int record){
             write_all_scores(3);
         }
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
     if (record == 1){
         write_scores(3);
     }
@@ -346,10 +346,8 @@ void string(long long int not, int runs, int record){
     reset();
     char string[2000000] = "c";
     char adding = 'c';
-    
-    
-    for (o = 0; o < runs; o++) {
-        printf("Pass %d\n", o + 1);
+    for (passloop = 0; passloop < runs; passloop++) {
+        printf("Pass %d\n", passloop + 1);
         startc();
         for (int z = 0; z < not && strlen(string) < sizeof(string) - 1; z++) {
             strncat(string, &adding, 1);
@@ -360,7 +358,7 @@ void string(long long int not, int runs, int record){
             write_all_scores(4);
         }
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
     if (record == 1){
         write_scores(4);
     }
@@ -372,8 +370,8 @@ void pi(int not, int runs, int record){
     long double rad = 10.9273213637231;
     
     
-    for (o = 0; o < runs; o++) {
-        printf("Pass %d\n", o + 1);
+    for (passloop = 0; passloop < runs; passloop++) {
+        printf("Pass %d\n", passloop + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
@@ -385,7 +383,7 @@ void pi(int not, int runs, int record){
             write_all_scores(5);
         }
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
     if (record == 1){
         write_scores(5);
     }
@@ -398,8 +396,8 @@ float fib(float num) {
 }
 void fib1(int not, int runs, int record){
     reset();
-    for (o = 0; o < runs; o++) {
-        printf("Pass %d\n", o + 1);
+    for (passloop = 0; passloop < runs; passloop++) {
+        printf("Pass %d\n", passloop + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
@@ -413,19 +411,19 @@ void fib1(int not, int runs, int record){
     if (record == 1){
         write_scores(6);
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
 }
 void division(int not, int runs, int record){
     reset();
     int x, y;
-    for (o = 0; o < runs; o++) {
-        printf("Pass %d\n", o + 1);
+    for (passloop = 0; passloop < runs; passloop++) {
+        printf("Pass %d\n", passloop + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
             for (x = 0; x < 250; x++) {
                 for (y = 0; y < 250; y++) {
-                    c[x][y] = (a[x][y] / b[x][y]);
+                    c[x][y] = (m1[x][y] / m2[x][y]);
                 }
             }
             for (x = 0; x < 250; x++) {
@@ -439,7 +437,7 @@ void division(int not, int runs, int record){
             write_all_scores(7);
         }
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
     if (record == 1){
         write_scores(7);
     }
@@ -449,8 +447,8 @@ void doubles(int not, int runs, int record){
     long int number1 = 1;
     
     
-    for (o = 0; o < runs; o++) {
-        printf("Pass %d\n", o + 1);
+    for (passloop = 0; passloop < runs; passloop++) {
+        printf("Pass %d\n", passloop + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
@@ -461,7 +459,7 @@ void doubles(int not, int runs, int record){
             write_all_scores(8);
         }
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
     if (record == 1){
         write_scores(8);
     }
@@ -476,14 +474,14 @@ void file_write(int not, int runs, int record){
     int x, y;
     
     
-    for (o = 0; o < runs; o++) {
-        printf("Pass %d\n", o + 1);
+    for (passloop = 0; passloop < runs; passloop++) {
+        printf("Pass %d\n", passloop + 1);
         startc();
         int z;
         for (z = 0; z < not; z++) {
             for (x = 0; x < 250; x++) {
                 for (y = 0; y < 250; y++) {
-                    fprintf(test, "%.10f\n", a[x][y]);
+                    fprintf(test, "%.10f\n", m1[x][y]);
                 }
             }
         }
@@ -494,7 +492,7 @@ void file_write(int not, int runs, int record){
         test = fopen("test.txt", "w");
         fprintf(test, "");
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
     fclose(test);
     if (record == 1){
         write_scores(9);
@@ -511,8 +509,8 @@ int fib3(int not) {
 }
 void fib4(int not, int runs, int record){
     reset();
-    for (o = 0; o < runs; o++) {
-        printf("Pass %d\n", o + 1);
+    for (passloop = 0; passloop < runs; passloop++) {
+        printf("Pass %d\n", passloop + 1);
         startc();
         int z;
         for (z = 0;z<not;z++) {
@@ -526,7 +524,7 @@ void fib4(int not, int runs, int record){
     if (record == 1){
         write_scores(10);
     }
-    printf("%.10f\n", timetime / o);
+    printf("%.10f\n", timetime / passloop);
 }
 void queue(){
     int tests[50];
