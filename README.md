@@ -17,8 +17,8 @@ While results can vary due to background programs, the tool provides a general i
 4. **String Concatenation**
     - Concatenates two strings together many times.
 
-5. **Pi Calculation**
-    - Calculates the value of pi.
+5. **PI Calculation**
+    - Calculates the value of π.
 
 6. **Fibonacci Sequence**
     - Calculates a Fibonacci sequence.
@@ -38,4 +38,3 @@ While results can vary due to background programs, the tool provides a general i
 ## **Logs**
 
 Each test generates its own log, stored in an automatically created file named `scoresN.txt`, where `N` is the test number. If a log file is missing, you can create it manually and place it in the same directory as the executable.
-
