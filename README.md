@@ -16,8 +16,8 @@ This benchmarking tool for Windows uses a multicore load and stress spikes to te
 4. **String Concatenation**
     - Concatenates two strings together many times.
 
-5. **Pi Calculation**
-    - Calculates the value of pi.
+5. **PI Calculation**
+    - Calculates the value of π.
 
 6. **Fibonacci Sequence**
     - Calculates a Fibonacci sequence.
