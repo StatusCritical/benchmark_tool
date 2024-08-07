@@ -53,7 +53,7 @@ Test 4: String Concatenation\
 Test 5: PI\
     Calculates PI.\
 Test 6: Fibonacci\
-    Calculates a Fibonacci sequence.\
+    Calculates The Fibonacci Sequence.\
 Test 7: Matrix Division\
     Divides two 250x250 matrices together.\
 Test 8: Doubling\
@@ -61,7 +61,7 @@ Test 8: Doubling\
 Test 9: File Writing\
     Writes a matrix to a file on the disk.\
 Test 10: Fibonacci The Second\
-    Just fibonacci in the other direction.
+    Calculates The Fibonacci Sequence in the other direction.
 
 Logs:\
 Each test will have it's own log, stored in an auto created file called scoresN.txt, N being the test number.\
