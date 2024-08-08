@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+
 clock_t t;
 double time_taken;
 int passloop;
@@ -10,15 +11,14 @@ double timetime;
 extern double m1[250][250];
 extern double m2[250][250];
 extern double c[250][250];
-int when_record(int indicator){
-    if (indicator == 0){
+int when_record(int indicator) {
+    if (indicator == 0) {
         int answer;
         printf("Would you like to record individual tests or the average?[0]Each/[1]Average/[2]None\n");
         printf(">>");
         scanf("%d", &answer);
         return answer;
-    }
-    else {
+    } else {
         return indicator;
     }
 }
@@ -31,174 +31,111 @@ void reset() {
     timetime = 0;
     passloop = 0;
 }
-double startc(){
+double startc() {
     t = clock();
     return t;
 }
-double endc(){
+double endc() {
     t = clock() - t;
-    time_taken = ((double)t)/(double)CLOCKS_PER_SEC;
-    timetime+=(double)time_taken;
+    time_taken = ((double)t) / (double)CLOCKS_PER_SEC;
+    timetime += (double)time_taken;
     return time_taken;
 }
-int run_times(int indicator){
+int run_times(int indicator) {
     if (indicator == 0) {
         int answer;
         printf("How many passes? (10 will take around 20-120 seconds depending on test)\n");
         printf(">>");
         scanf("%d", &answer);
         return answer;
-    }
-    else {
+    } else {
         return indicator;
     }
 }
-void write_scores(int test){
-    void write_scores(int test) {
-        if (passloop == 0) return;
-        FILE *f = NULL;
-        switch (test) {
-            case 1:
-                f = fopen("scores1.txt", "a");
-                break;
-            case 2:
-                f = fopen("scores2.txt", "a");
-                break;
-            case 3:
-                f = fopen("scores3.txt", "a");
-                break;
-            case 4:
-                f = fopen("scores4.txt", "a");
-                break;
-            case 5:
-                f = fopen("scores5.txt", "a");
-                break;
-            case 6:
-                f = fopen("scores6.txt", "a");
-                break;
-            case 7:
-                f = fopen("scores7.txt", "a");
-                break;
-            case 8:
-                f = fopen("scores8.txt", "a");
-                break;
-            case 9:
-                f = fopen("scores9.txt", "a");
-                break;
-            case 10:
-                f = fopen("scores10.txt", "a");
-                break;
-            default:
-                return;
-        }
-        if (f == NULL) {
+void write_scores(int test) {
+    if (passloop == 0) return;
+    FILE *f = NULL;
+    switch (test) {
+        case 1:
+            f = fopen("scores1.txt", "a");
+            break;
+        case 2:
+            f = fopen("scores2.txt", "a");
+            break;
+        case 3:
+            f = fopen("scores3.txt", "a");
+            break;
+        case 4:
+            f = fopen("scores4.txt", "a");
+            break;
+        case 5:
+            f = fopen("scores5.txt", "a");
+            break;
+        case 6:
+            f = fopen("scores6.txt", "a");
+            break;
+        case 7:
+            f = fopen("scores7.txt", "a");
+            break;
+        case 8:
+            f = fopen("scores8.txt", "a");
+            break;
+        case 9:
+            f = fopen("scores9.txt", "a");
+            break;
+        case 10:
+            f = fopen("scores10.txt", "a");
+            break;
+        default:
             return;
-        }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
     }
+    if (f == NULL) {
+        return;
+    }
+    fprintf(f, "%.10f\n", timetime / passloop);
+    fclose(f);
 }
-void write_all_scores(int test){
-    if (test == 1){
-        FILE *f = fopen("scores1.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
+void write_all_scores(int test) {
+    FILE *f = NULL;
+    switch (test) {
+        case 1:
+            f = fopen("scores1.txt", "a");
+            break;
+        case 2:
+            f = fopen("scores2.txt", "a");
+            break;
+        case 3:
+            f = fopen("scores3.txt", "a");
+            break;
+        case 4:
+            f = fopen("scores4.txt", "a");
+            break;
+        case 5:
+            f = fopen("scores5.txt", "a");
+            break;
+        case 6:
+            f = fopen("scores6.txt", "a");
+            break;
+        case 7:
+            f = fopen("scores7.txt", "a");
+            break;
+        case 8:
+            f = fopen("scores8.txt", "a");
+            break;
+        case 9:
+            f = fopen("scores9.txt", "a");
+            break;
+        case 10:
+            f = fopen("scores10.txt", "a");
+            break;
+        default:
             return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
     }
-    else if (test == 2){
-        FILE *f = fopen("scores2.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
+    if (f == NULL) {
+        return;
     }
-    else if (test == 3){
-        FILE *f = fopen("scores3.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
-    }
-    else if (test == 4){
-        FILE *f = fopen("scores4.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
-    }
-    else if (test == 5){
-        FILE *f = fopen("scores5.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
-    }
-    else if (test == 6){
-        FILE *f = fopen("scores6.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
-    }
-    else if (test == 7){
-        FILE *f = fopen("scores7.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
-    }
-    else if (test == 8){
-        FILE *f = fopen("scores8.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
-    }
-    else if (test == 9){
-        FILE *f = fopen("scores9.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
-    }
-    else if (test == 10){
-        FILE *f = fopen("scores10.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", time_taken);
-        fclose(f);
-    }
+    fprintf(f, "%.10f\n", time_taken);
+    fclose(f);
 }
 void mult_mat(int not, int runs, int record){
     reset();
