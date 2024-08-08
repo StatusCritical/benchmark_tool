@@ -54,102 +54,44 @@ int run_times(int indicator){
     }
 }
 void write_scores(int test){
-    if (passloop == 0) return;
-    if (test == 1){
-        FILE *f = fopen("scores1.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
+    void write_scores(int test) {
+        if (passloop == 0) return;
+        FILE *f = NULL;
+        switch (test) {
+            case 1:
+                f = fopen("scores1.txt", "a");
+                break;
+            case 2:
+                f = fopen("scores2.txt", "a");
+                break;
+            case 3:
+                f = fopen("scores3.txt", "a");
+                break;
+            case 4:
+                f = fopen("scores4.txt", "a");
+                break;
+            case 5:
+                f = fopen("scores5.txt", "a");
+                break;
+            case 6:
+                f = fopen("scores6.txt", "a");
+                break;
+            case 7:
+                f = fopen("scores7.txt", "a");
+                break;
+            case 8:
+                f = fopen("scores8.txt", "a");
+                break;
+            case 9:
+                f = fopen("scores9.txt", "a");
+                break;
+            case 10:
+                f = fopen("scores10.txt", "a");
+                break;
+            default:
+                return;
         }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
-    }
-    else if (test == 2){
-        FILE *f = fopen("scores2.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
-    }
-    else if (test == 3){
-        FILE *f = fopen("scores3.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
-    }
-    else if (test == 4){
-        FILE *f = fopen("scores4.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
-    }
-    else if (test == 5){
-        FILE *f = fopen("scores5.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
-    }
-    else if (test == 6){
-        FILE *f = fopen("scores6.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
-    }
-    else if (test == 7){
-        FILE *f = fopen("scores7.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
-    }
-    else if (test == 8){
-        FILE *f = fopen("scores8.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
-    }
-    else if (test == 9){
-        FILE *f = fopen("scores9.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
-            return;
-        }
-        fprintf(f, "%.10f\n", timetime / passloop);
-        fclose(f);
-    }
-    else if (test == 10){
-        FILE *f = fopen("scores10.txt", "a");
-        if (f == NULL)
-        {
-            printf("Error writing to log file.\n");
+        if (f == NULL) {
             return;
         }
         fprintf(f, "%.10f\n", timetime / passloop);
