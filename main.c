@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-
 clock_t t;
 double time_taken;
 int passloop;
@@ -242,7 +241,7 @@ void string(long long int not, int runs, int record){
         write_scores(4);
     }
 }
-void pi(int not, int runs, int record){
+void pi(long long int not, int runs, int record){
     reset();
     long double p = 0;
     long double cir = 68.65838503937458;
@@ -434,7 +433,7 @@ void queue(){
             string(300000, run_times(runs[i]), rec);
         }
         else if (tests[i] == 5){
-            pi(1783793664, run_times(runs[i]), rec);
+            pi(1000000000, run_times(runs[i]), rec);
         }
         else if (tests[i] == 6){
             fib1(150, run_times(runs[i]), rec);
@@ -487,7 +486,7 @@ int main() {
             string(300000, run_times(0), when_record(0));
         }
         else if (ans == 5) {
-            pi(1783793664, run_times(0), when_record(0));
+            pi(1000000000, run_times(0), when_record(0));
         }
         else if (ans == 6) {
             fib1(150, run_times(0), when_record(0));
