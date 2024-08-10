@@ -467,7 +467,7 @@ int main() {
         printf("                [7]- Matrix Division\n");
         printf("                [8]- Doubling\n");
         printf("                [9]- File Writing\n");
-        printf("                [10]- File Writing\n");
+        printf("                [10]- Second Fibonacci\n");
         printf("                [11]- Set up a queue of tests.\n");
         printf("                [0]- Quit\n");
         printf("---------------------------------------------------------------\n");
