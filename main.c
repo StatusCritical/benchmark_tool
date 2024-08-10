@@ -16,7 +16,11 @@ int when_record(int indicator) {
         printf("Would you like to record individual tests or the average?[0]Each/[1]Average/[2]None\n");
         printf(">>");
         scanf("%d", &answer);
-        return answer;
+        if (answer == 0 || answer == 1 || answer == 2) {
+            return answer;
+        } else {
+            return 1;
+        }
     } else {
         return indicator;
     }
@@ -29,6 +33,9 @@ void core() {
 void reset() {
     timetime = 0;
     passloop = 0;
+}
+void clear(){
+    //
 }
 double startc() {
     t = clock();
@@ -344,14 +351,11 @@ void doubles(int not, int runs, int record){
 }
 void file_write(int not, int runs, int record){
     reset();
-    FILE *test = fopen("test.txt", "a");
+    FILE *test = fopen("test", "a");
     if (test == NULL) {
-        printf("Error writing to test file.\n");
         return;
     }
     int x, y;
-    
-    
     for (passloop = 0; passloop < runs; passloop++) {
         printf("Pass %d\n", passloop + 1);
         startc();
@@ -367,7 +371,7 @@ void file_write(int not, int runs, int record){
         if (record == 0){
             write_all_scores(9);
         }
-        test = fopen("test.txt", "w");
+        test = fopen("test", "w");
         fprintf(test, "");
     }
     printf("%.10f\n", timetime / passloop);
@@ -458,7 +462,7 @@ int main() {
         printf("---------------------------------------------------------------\n");
         printf("                  Welcome to benchmark.\n          ");
         core();
-        printf("                [1]- Float Matrix Multiplication\n");
+        printf("\n                [1]- Float Matrix Multiplication\n");
         printf("                [2]- Float Matrix Verification\n");
         printf("                [3]- Console Print Speed\n");
         printf("                [4]- String Concatenation\n");
@@ -467,7 +471,7 @@ int main() {
         printf("                [7]- Matrix Division\n");
         printf("                [8]- Doubling\n");
         printf("                [9]- File Writing\n");
-        printf("                [10]- File Writing\n");
+        printf("                [10]- Fibonacci 2\n\n");
         printf("                [11]- Set up a queue of tests.\n");
         printf("                [0]- Quit\n");
         printf("---------------------------------------------------------------\n");
