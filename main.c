@@ -25,17 +25,77 @@ int when_record(int indicator) {
         return indicator;
     }
 }
-void core() {
-    PROCESSOR_NUMBER ProcNumber;
-    GetCurrentProcessorNumberEx(&ProcNumber);
-    printf("Running program on processor group %d, number %d.\n", ProcNumber.Group, ProcNumber.Number);
-}
 void reset() {
     timetime = 0;
     passloop = 0;
 }
-void clear(){
-    //
+void clear(int indicator){
+    if (indicator == 0){
+        FILE *f = fopen("scores1.txt", "w");
+        fclose(f);
+        f = fopen("scores2.txt", "w");
+        fclose(f);
+        f = fopen("scores3.txt", "w");
+        fclose(f);
+        f = fopen("scores4.txt", "w");
+        fclose(f);
+        f = fopen("scores5.txt", "w");
+        fclose(f);
+        f = fopen("scores6.txt", "w");
+        fclose(f);
+        f = fopen("scores7.txt", "w");
+        fclose(f);
+        f = fopen("scores8.txt", "w");
+        fclose(f);
+        f = fopen("scores9.txt", "w");
+        fclose(f);
+        f = fopen("scores10.txt", "w");
+        fclose(f);
+    }
+    switch (indicator){
+        case 1:
+            FILE *f = fopen("scores1.txt", "w");
+            fclose(f);
+            break;
+        case 2:
+            f = fopen("scores2.txt", "w");
+            fclose(f);
+            break;
+        case 3:
+            f = fopen("scores3.txt", "w");
+            fclose(f);
+            break;
+        case 4:
+            f = fopen("scores4.txt", "w");
+            fclose(f);
+            break;
+        case 5:
+            f = fopen("scores5.txt", "w");
+            fclose(f);
+            break;
+        case 6:
+            f = fopen("scores6.txt", "w");
+            fclose(f);
+            break;
+        case 7:
+            f = fopen("scores7.txt", "w");
+            fclose(f);
+            break;
+        case 8:
+            f = fopen("scores8.txt", "w");
+            fclose(f);
+            break;
+        case 9:
+            f = fopen("scores9.txt", "w");
+            fclose(f);
+            break;
+        case 10:
+            f = fopen("scores10.txt", "w");
+            fclose(f);
+            break;
+        default:
+            break;
+    }
 }
 double startc() {
     t = clock();
@@ -461,7 +521,6 @@ int main() {
     while (1) {
         printf("---------------------------------------------------------------\n");
         printf("                  Welcome to benchmark.\n          ");
-        core();
         printf("\n                [1]- Float Matrix Multiplication\n");
         printf("                [2]- Float Matrix Verification\n");
         printf("                [3]- Console Print Speed\n");
