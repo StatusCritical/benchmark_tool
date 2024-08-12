@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h>
+//#include <windows.h>
 clock_t t;
 double time_taken;
 int passloop;
@@ -25,11 +25,11 @@ int when_record(int indicator) {
         return indicator;
     }
 }
-void core() {
-    PROCESSOR_NUMBER ProcNumber;
-    GetCurrentProcessorNumberEx(&ProcNumber);
-    printf("Running program on processor group %d, number %d.\n", ProcNumber.Group, ProcNumber.Number);
-}
+//void core() {
+//    PROCESSOR_NUMBER ProcNumber;
+//    GetCurrentProcessorNumberEx(&ProcNumber);
+//    printf("Running program on processor group %d, number %d.\n", ProcNumber.Group, ProcNumber.Number);
+//}
 void reset() {
     timetime = 0;
     passloop = 0;
