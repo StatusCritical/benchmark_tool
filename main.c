@@ -532,6 +532,7 @@ int main() {
         printf("                [9]- File Writing\n");
         printf("                [10]- Fibonacci 2\n\n");
         printf("                [11]- Set up a queue of tests.\n");
+        printf("                [12]- Clear logs.\n");
         printf("                [0]- Quit\n");
         printf("---------------------------------------------------------------\n");
         printf(">>");
@@ -568,6 +569,12 @@ int main() {
         }
         else if (ans == 11) {
             queue();
+        }
+        else if (ans == 12) {
+            printf("Enter the log number you would like to clear or 0 to clear all:");
+            int log;
+            scanf("%d", &log);
+            clear(log);
         }
         else if (ans == 0) {
             return 0;
