@@ -32,7 +32,7 @@ While results can vary due to background programs, the tool provides a general i
 9. **File Writing**
     - Writes a matrix to a file on disk.
 
-10. **Fibonacci The Second**
+10. **Fibonacci But in Reverse**
     - Calculates a Fibonacci sequence in the other direction.
 
 ## **Logs**
