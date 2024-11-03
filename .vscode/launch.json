@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "cppvsdbg",
+            "request": "launch",
+            "name": "Launch untitled",
+            "program": "${workspaceFolder}/cmake-build-debug/untitled.exe",
+            "cwd": "${workspaceFolder}/cmake-build-debug",
+            "stopAtEntry": false
+        }
+    ]
+}

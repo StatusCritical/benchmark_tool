@@ -122,6 +122,7 @@ void write_scores(int test) {
     if (passloop == 0) return;
     FILE *f = NULL;
     switch (test) {
+        //opens and appends based on the test number
         case 1:
             f = fopen("scores1.txt", "a");
             break;
@@ -156,12 +157,14 @@ void write_scores(int test) {
             return;
     }
     if (f == NULL) {
+        printf("Error opening file!\n");
         return;
     }
     fprintf(f, "%.10f\n", timetime / passloop);
     fclose(f);
 }
 void write_all_scores(int test) {
+    //this is for writing the time of each test, and not the average
     FILE *f = NULL;
     switch (test) {
         case 1:
@@ -520,8 +523,8 @@ int main() {
     int ans;
     while (1) {
         printf("---------------------------------------------------------------\n");
-        printf("                  Welcome to benchmark.\n          ");
-        printf("\n                [1]- Float Matrix Multiplication\n");
+        printf("                  Welcome to benchmark.\n\n");          
+        printf("                [1]- Float Matrix Multiplication\n");
         printf("                [2]- Float Matrix Verification\n");
         printf("                [3]- Console Print Speed\n");
         printf("                [4]- String Concatenation\n");
